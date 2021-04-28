@@ -1,0 +1,192 @@
+.main-banner, .product-section{
+  width: auto;
+  height: auto;
+}
+/*category section*/
+.main-banner h5:before {
+  content: "\f0c9";
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  color: #fff;
+  margin-right: 15px;
+  font-size: 20px;
+  margin-right: 20px;
+}
+.main-banner h5 {
+  background: #343c49;
+  padding: 15px !important;
+  letter-spacing: 1px;
+  font-size: 20px !important;
+}
+.main-banner .wp-block-column.cats {
+  background: #fff;
+  list-style: none;
+  height: 410px;
+}
+.main-banner .wp-block-column.cats ul.wc-block-product-categories-list.wc-block-product-categories-list--depth-0{
+  margin: 0;
+  padding: 0;
+}
+.main-banner .wp-block-column.cats li.wc-block-product-categories-list-item {
+  border-bottom: dashed 2px #eeeeee;
+  padding: 15px;
+}
+.main-banner .wp-block-column.cats li.wc-block-product-categories-list-item a{
+  color: #ababab;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-decoration: none !important;
+}
+.main-banner .wp-block-column.cats li.wc-block-product-categories-list-item a:after {
+  content: "\f0da";
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  color: #ababab;
+  font-size: 20px;
+  margin-right: 20px;
+  float: right;
+}
+/*Banner section*/
+.main-banner h4{
+  letter-spacing: 10px;
+  font-family: "Montserrat";
+  font-weight: 700;
+}
+.main-banner h1{
+  position: relative;
+}
+.main-banner h1:after{
+  content: "";
+  border-bottom: solid 4px #9cc44e;
+  position: absolute;
+  left: 0;
+  width: 15%;
+  bottom: 5px;
+}
+.main-banner .wp-block-button__link{
+  color: #fff !important;
+  border: none !important;
+}
+.main-banner .wp-block-button__link:hover{
+  border: solid 2px #343c49 !important;
+  color: #343c49 !important;
+  background: transparent !important;
+}
+/*Products section*/
+.product-section h2{
+  position: relative;
+}
+.product-section h2:after{
+  content: "";
+  border-bottom: solid 4px #9cc44e;
+  position: absolute;
+  left: 0;
+  width: 5%;
+  bottom: -10px;
+}
+.product-section li.wc-block-grid__product{
+  font-family: 'Caveat Brush', cursive;
+  background: #343c49 ;
+  padding-bottom: 40px;
+  flex: 1 0 23% !important;
+  max-width: 23% !important;
+  margin-right: 18px;
+  margin-bottom: 20px;
+  border: 0;
+}
+.product-section ul.wc-block-grid__products{
+  margin: 0 !important;
+}
+.product-section ul.wc-block-grid__products li:last-child{
+  margin-right: 0;
+}
+.product-section li.wc-block-grid__product a{
+  text-decoration: none !important;
+}
+.product-section li.wc-block-grid__product:hover, .product-section li.wc-block-grid__product:hover .wc-block-grid__product-onsale{
+  background: #9cc44e;
+}
+.product-section li.wc-block-grid__product:hover .wc-block-grid__product-onsale, .product-section li.wc-block-grid__product:hover .wp-block-button__link.add_to_cart_button.ajax_add_to_cart{
+  border-color: #9cc44e;
+}
+.product-section li.wc-block-grid__product img{
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 65%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 85%, 0 100%);
+}
+.product-section .wc-block-grid__product-title{
+  color: #fff;
+  letter-spacing: 1px;
+  font-size: 25px !important;
+}
+.product-section .wc-block-grid__product-price.price{
+  color: #fff;
+  font-size: 18px;
+  letter-spacing: 1px;
+  margin-bottom: -35px;
+}
+.wc-block-grid__product-onsale {
+  text-transform: uppercase;
+  background: #343c49;
+  padding: 0;
+  top: 15px !important;
+  left: 15px !important;
+  right: auto !important;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: 'Caveat Brush', cursive;
+  position: absolute;
+  border-radius: 100%;
+  color: #fff;
+  line-height: 3.236;
+  min-height: 3.236em;
+  min-width: 3.236em;
+}
+.product-section .wp-block-button__link.add_to_cart_button.ajax_add_to_cart  {
+  padding: 28px;
+  background: url(../images/cart-icon.png) no-repeat scroll 17px #fff;
+  text-indent: -9999px;
+  border: solid 2px #343c49;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+/*------ Media CSS ------*/
+@media screen and (max-width: 767px){
+  .main-banner .wp-block-column.cats{
+    margin-bottom: 20px;
+  }
+  .product-section li.wc-block-grid__product{
+    flex: 1 0 100% !important;
+    max-width: 70% !important;
+    padding-bottom: 40px !important;
+  }
+  .product-section ul.wc-block-grid__products li:last-child{
+    margin-right: auto;
+  }
+  .main-banner h1{
+    font-size: 35px !important;
+  }
+}
+@media screen and (max-width: 992px) and (min-width: 768px){
+  .main-banner h1{
+    font-size: 30px !important;
+  }
+  .main-banner .banner-box{
+    flex-basis: 66.66% !important;
+  }
+  .main-banner .cats{
+    flex-basis: 28% !important;
+  }
+  .main-banner h4 {
+    letter-spacing: 8px;
+  }
+  .product-section .wp-block-button__link.add_to_cart_button.ajax_add_to_cart{
+    top: 40%;
+  }
+}
