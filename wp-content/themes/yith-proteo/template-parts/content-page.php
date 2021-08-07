@@ -19,6 +19,8 @@
 	<?php endif; ?>
 	<?php yith_proteo_post_thumbnail(); ?>
 
+	<?php echo do_shortcode('[metaslider id="107"]'); ?>
+	
 	<div class="entry-content">
 		<?php
 		the_content();
