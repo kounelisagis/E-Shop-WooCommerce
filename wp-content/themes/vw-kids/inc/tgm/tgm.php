@@ -13,6 +13,20 @@ function vw_kids_register_recommended_plugins() {
 			'required'         => false,
 			'force_activation' => false,
 		),
+		array(
+			'name'             => __( 'Ibtana - Ecommerce Product Addons', 'vw-kids' ),
+			'slug'             => 'ibtana-ecommerce-product-addons',
+			'source'           => '',
+			'required'         => false,
+			'force_activation' => false,
+		),
+		array(
+			'name'             => __( 'Woocommerce', 'vw-kids' ),
+			'slug'             => 'woocommerce',
+			'source'           => '',
+			'required'         => false,
+			'force_activation' => false,
+		)
 	);
 	$config = array();
 	tgmpa( $plugins, $config );

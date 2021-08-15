@@ -1,0 +1,261 @@
+# Translation of Plugins - Cookie Notice &amp; Compliance for GDPR / CCPA - Stable (latest release) in Greek
+# This file is distributed under the same license as the Plugins - Cookie Notice &amp; Compliance for GDPR / CCPA - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2021-04-18 20:23:06+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/3.0.0-alpha.2\n"
+"Language: el_GR\n"
+"Project-Id-Version: Plugins - Cookie Notice &amp; Compliance for GDPR / CCPA - Stable (latest release)\n"
+
+#: includes/settings.php:1018
+msgid "Bar opacity"
+msgstr "Ορατότητα Μπάρας"
+
+#: includes/settings.php:867
+msgid "The amount of time that the cookie should be stored for when the user doesn't accept the notice."
+msgstr "Ο χρόνος που ένα cookie θα μένει αποθηκευμένο, όταν ο χρήστης δεν αποδέχεται την ειδοποίηση."
+
+#: includes/settings.php:844
+msgid "The amount of time that the cookie should be stored for when user accepts the notice."
+msgstr "Ο χρόνος που ένα cookie θα μένει αποθηκευμένο, όταν ο χρήστης αποδέχεται την ειδοποίηση."
+
+#: includes/settings.php:515
+msgid "Rejected expiry"
+msgstr "Λήξη απόρριψης"
+
+#: includes/settings.php:514
+msgid "Accepted expiry"
+msgstr "Λήξη αποδοχή"
+
+#: includes/settings.php:981
+msgid "Select the buttons style."
+msgstr "Επιλέξτε το στύλ του κουμπιού."
+
+#: includes/settings.php:55
+msgid "Dark"
+msgstr "Σκούρο"
+
+#: includes/settings.php:54
+msgid "Light"
+msgstr "Φωτεινό"
+
+#: includes/settings.php:123 includes/settings.php:389
+#: includes/settings.php:507
+msgid "Privacy policy"
+msgstr "Πολιτική απορρήτου"
+
+#: includes/settings.php:86
+msgid "An hour"
+msgstr "Mια ώρα"
+
+#: includes/settings.php:59
+msgid "Automatic"
+msgstr "Αυτόματο"
+
+#: includes/settings.php:690
+msgid "Body"
+msgstr "Κείμενο"
+
+#: includes/settings.php:759
+msgid "Enable privacy policy link."
+msgstr "Ενεργοποίηση συνδέσμου πολιτικής απορρήτου."
+
+#: includes/settings.php:60
+msgid "Manual"
+msgstr "Χειροκίνητη"
+
+#: includes/settings.php:794
+msgid "Synchronize with WordPress Privacy Policy page."
+msgstr "Συγχρονισμός με την σελίδα πολιτικής απορρήτου του WordPress."
+
+#: includes/settings.php:689
+msgid "Head"
+msgstr "Head"
+
+#: includes/settings.php:511
+msgid "Reloading"
+msgstr "Επαναφόρτωση"
+
+#: includes/settings.php:736
+msgid "Enable to reload the page after the notice is accepted."
+msgstr "Επαναφόρτωση της σελίδας, μετά την αποδοχή των cookies."
+
+#: includes/settings.php:510
+msgid "Script blocking"
+msgstr "Script blocking"
+
+#: includes/settings.php:79
+msgid "Text color"
+msgstr "Χρώμα κειμένου"
+
+#: includes/settings.php:87
+msgid "1 day"
+msgstr "1 μέρα"
+
+#: includes/settings.php:88
+msgid "1 week"
+msgstr "1 εβδομάδα"
+
+#: includes/settings.php:90
+msgid "3 months"
+msgstr "3 μήνες"
+
+#: includes/settings.php:91
+msgid "6 months"
+msgstr "6 μήνες"
+
+#: includes/settings.php:92
+msgid "1 year"
+msgstr "1 έτος"
+
+#: includes/settings.php:99
+msgid "Fade"
+msgstr "Ξεθώριασμα"
+
+#: includes/settings.php:104
+msgid "Header"
+msgstr "Κεφαλίδα"
+
+#: includes/settings.php:105
+msgid "Footer"
+msgstr "Υποσέλιδο"
+
+#: includes/settings.php:386
+msgid "No"
+msgstr "Όχι"
+
+#: includes/settings.php:468
+msgid "Reset to defaults"
+msgstr "Επαναφορά στις αρχικές ρυθμίσεις"
+
+#: includes/settings.php:75 includes/settings.php:505
+msgid "Message"
+msgstr "Κείμενο"
+
+#: includes/settings.php:506
+msgid "Button text"
+msgstr "Κείμενο κουμπιού"
+
+#: includes/settings.php:521
+msgid "Position"
+msgstr "Θέση"
+
+#: includes/settings.php:523
+msgid "Button style"
+msgstr "Στυλ κουμπιού"
+
+#: includes/settings.php:525
+msgid "Colors"
+msgstr "Χρώματα"
+
+#: includes/settings.php:777
+msgid "-- select page --"
+msgstr "--επιλέξτε σελίδα --"
+
+#: includes/settings.php:1166
+msgid "Settings restored to defaults."
+msgstr "Έγινε επαναφορά στις προεπιλεγμένες ρυθμίσεις."
+
+#: cookie-notice.php:473
+msgid "Settings"
+msgstr "Ρυθμίσεις"
+
+#: includes/settings.php:1193
+msgid "Are you sure you want to reset these settings to defaults?"
+msgstr "Είστε σίγουροι πως θέλετε να κάνετε επαναφορά των ρυθμίσεων?"
+
+#: includes/settings.php:65
+msgid "Custom link"
+msgstr "Προσαρμοσμένος σύνδεσμος"
+
+#: includes/settings.php:64
+msgid "Page link"
+msgstr "Σύνδεσμος σελίδας"
+
+#: includes/settings.php:80
+msgid "Bar color"
+msgstr "Χρώμα μπάρας"
+
+#: includes/settings.php:495 includes/settings.php:517
+msgid "Deactivation"
+msgstr "Απενεργοποίηση"
+
+#: includes/settings.php:494 includes/settings.php:516
+msgid "Script placement"
+msgstr "Θέση του script"
+
+#: includes/settings.php:885
+msgid "Select where all the plugin scripts should be placed."
+msgstr "Επιλέξτε που θα τοποθετηθούν όλα τα scripts του πρόσθετου."
+
+#: includes/settings.php:424 includes/welcome.php:429
+msgid "Cookie Notice"
+msgstr "Cookie Notice"
+
+#: includes/settings.php:646
+msgid "Enter the cookie notice message."
+msgstr "Εισάγετε το μήνυμα ειδοποίησης cookie."
+
+#: includes/settings.php:667
+msgid "Enable to give to the user the possibility to refuse third party non functional cookies."
+msgstr "Δώστε στο χρήστη τη δυνατότητα να αρνηθεί τα μη λειτουργικά cookies τρίτων."
+
+#: includes/settings.php:512
+msgid "On scroll"
+msgstr "Στο scroll"
+
+#: includes/settings.php:961
+msgid "Enable if you want all plugin data to be deleted on deactivation."
+msgstr "Ενεργοποιήστε το εάν επιθυμείτε να διαγραφούν όλα τα δεδομένα του πρόσθετου κατά την απενεργοποίηση."
+
+#: includes/settings.php:522
+msgid "Animation"
+msgstr "Κινούμενο σχέδιο"
+
+#: includes/settings.php:100
+msgid "Slide"
+msgstr "Slide"
+
+#: includes/settings.php:89
+msgid "1 month"
+msgstr "1 μήνας"
+
+#: includes/settings.php:384
+msgid "We use cookies to ensure that we give you the best experience on our website. If you continue to use this site we will assume that you are happy with it."
+msgstr "Χρησιμοποιούμε cookies για να σας προσφέρουμε την καλύτερη δυνατή εμπειρία στη σελίδα μας. Εάν συνεχίσετε να χρησιμοποιείτε τη σελίδα, θα υποθέσουμε πως είστε ικανοποιημένοι με αυτό."
+
+#: includes/settings.php:385
+msgid "Ok"
+msgstr "Εντάξει"
+
+#: includes/settings.php:701
+msgid "Enter non functional cookies Javascript code here (for e.g. Google Analitycs) to be used after the notice is accepted."
+msgstr "Εισάγετε τον κώδικα Javascript των μη λειτουργικών cookies εδώ (π.χ. Google Analytics). Θα χρησιμοποιηθεί αφού γίνει αποδοχή των cookies."
+
+#: includes/settings.php:801
+msgid "Enter the full URL starting with http(s)://"
+msgstr "Εισάγετε τον πλήρη σύνδεσμο (URL) ξεκινώντας με http(s)://"
+
+#: includes/settings.php:788
+msgid "Select from one of your site's pages."
+msgstr "Επιλέξτε μια από τις σελίδες σας."
+
+#: includes/settings.php:93
+msgid "infinity"
+msgstr "infinity"
+
+#: includes/settings.php:48 includes/welcome.php:511
+msgid "Top"
+msgstr "Επάνω"
+
+#: includes/settings.php:49 includes/welcome.php:510
+msgid "Bottom"
+msgstr "Κάτω"
+
+#: includes/settings.php:53 includes/settings.php:98
+msgid "None"
+msgstr "Κανένα"

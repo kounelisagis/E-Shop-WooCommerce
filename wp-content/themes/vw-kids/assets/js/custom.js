@@ -80,10 +80,12 @@ jQuery(document).ready(function () {
 });
 
 (function( $ ) {
-	jQuery(window).load(function() {
-	    jQuery("#status").fadeOut();
-	    jQuery("#preloader").delay(1000).fadeOut("slow");
-	})
+	jQuery('document').ready(function($){
+	    setTimeout(function () {
+    		jQuery("#preloader").fadeOut("slow");
+	    },1000);
+	});
+	
 	$(window).scroll(function(){
 		var sticky = $('.header-sticky'),
 			scroll = $(window).scrollTop();

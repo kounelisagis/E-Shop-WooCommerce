@@ -6,7 +6,7 @@ import Toolbar from './Toolbar'
 import Content from '../pages/Content'
 import Login from '../pages/Login'
 import Welcome from '../pages/Welcome'
-import Beacon from '../components/Beacon'
+import useBeacon from '../hooks/useBeacon'
 import { useGlobalStore } from '../state/GlobalState'
 import { useUserStore } from '../state/User'
 
@@ -16,6 +16,7 @@ export default function MainWindow() {
     const setOpen = useGlobalStore(state => state.setOpen)
     const currentPage = useGlobalStore(state => state.currentPage)
     const hasClickedThroughWelcomePage = useUserStore(state => state.hasClickedThroughWelcomePage)
+    useBeacon(open)
 
     useEffect(() => {
         hasClickedThroughWelcomePage && useGlobalStore.setState({
@@ -67,7 +68,6 @@ export default function MainWindow() {
                                         <Login className="w-full flex-grow overflow-hidden bg-extendify-light"/>
                                         }
                                     </div>}
-                                <Beacon show={open}/>
                             </div>
                         </Transition.Child>
                     </div>

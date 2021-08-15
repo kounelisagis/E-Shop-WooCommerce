@@ -33,13 +33,6 @@ msgstr ""
 msgid 'Return to the home page'
 msgstr ""
 
-#: archive.php:43 
-#: archive.php:79 
-#: archive.php:114 
-#: archive.php:149 
-#: archive.php:186 
-#: archive.php:225 
-#: archive.php:261
 #: image.php:38 
 #: image.php:71 
 #: image.php:103 
@@ -47,20 +40,6 @@ msgstr ""
 #: image.php:169 
 #: image.php:204 
 #: image.php:236 
-#: index.php:43 
-#: index.php:76 
-#: index.php:108 
-#: index.php:140 
-#: index.php:174 
-#: index.php:209 
-#: index.php:241
-#: search.php:39 
-#: search.php:73 
-#: search.php:106 
-#: search.php:139 
-#: search.php:174 
-#: search.php:211 
-#: search.php:245
 #: single.php:38 
 #: single.php:71 
 #: sinlge.php:103 
@@ -71,13 +50,6 @@ msgstr ""
 msgid 'Previous page'
 msgstr ""
 
-#: archive.php:44 
-#: archive.php:80 
-#: archive.php:115 
-#: archive.php:150 
-#: archive.php:187 
-#: archive.php:226 
-#: archive.php:262
 #: image.php:39 
 #: image.php:72 
 #: image.php:104 
@@ -85,20 +57,6 @@ msgstr ""
 #: image.php:170 
 #: image.php:205 
 #: image.php:237
-#: index.php:44 
-#: index.php:77 
-#: index.php:109 
-#: index.php:141 
-#: index.php:175 
-#: index.php:210
-#: index.php:242
-#: search.php:40 
-#: search.php:74 
-#: search.php:107 
-#: search.php:140 
-#: search.php:175 
-#: search.php:212
-#: search.php:246 
 #: single.php:39 
 #: single.php:72 
 #: single.php:104 
@@ -109,13 +67,6 @@ msgstr ""
 msgid 'Next page'
 msgstr ""
 
-#: archive.php:45 
-#: archive.php:81 
-#: archive.php:116 
-#: archive.php:151 
-#: archive.php:188 
-#: archive.php:227 
-#: archive.php:263
 #: image.php:40 
 #: image.php:73 
 #: image.php:105 
@@ -123,20 +74,6 @@ msgstr ""
 #: image.php:171 
 #: image.php:206 
 #: image.php:238
-#: index.php:45 
-#: index.php:78 
-#: index.php:110 
-#: index.php:142 
-#: index.php:176 
-#: index.php:211
-#: index.php:243 
-#: search.php:41 
-#: search.php:75 
-#: search.php:108 
-#: search.php:141 
-#: search.php:176 
-#: search.php:213 
-#: search.php:247
 #: single.php:40 
 #: single.php:73 
 #: single.php:105
@@ -165,10 +102,6 @@ msgstr ""
 
 #: functions.php:32
 msgid 'Primary Menu'
-msgstr ""
-
-#: functions.php:69
-msgid 'Warm Greetings to you!!'
 msgstr ""
 
 #: functions.php:70
@@ -321,10 +254,6 @@ msgstr ""
 
 #: inc/themes-widgets/social-icon.php:72
 msgid "Twitter"
-msgstr ""
-
-#: inc/themes-widgets/social-icon.php:76
-msgid "Google+"
 msgstr ""
 
 #: inc/themes-widgets/social-icon.php:80
@@ -857,10 +786,6 @@ msgstr ""
 msgid 'Comments'
 msgstr ""
 
-#: inc/customizer.php:515
-msgid 'Tags'
-msgstr ""
-
 #: inc/customizer.php:527
 msgid 'Excerpt length'
 msgstr ""
@@ -951,6 +876,10 @@ msgstr ""
 msgid 'Single Post Settings'
 msgstr ""
 
+#: inc/customizer.php:515
+msgid 'Tags'
+msgstr ""
+
 #: inc/customizer.php:675
 msgid 'Post Navigation'
 msgstr ""
@@ -979,10 +908,6 @@ msgstr ""
 msgid 'Responsive Media'
 msgstr ""
 
-#: inc/customizer.php:816
-msgid 'Show / Hide Metabox'
-msgstr ""
-
 #: inc/customizer.php:826
 msgid 'Show / Hide Sidebar'
 msgstr ""
@@ -993,14 +918,6 @@ msgstr ""
 
 #: inc/customizer.php:849
 msgid 'Add Close Menu Icon'
-msgstr ""
-
-#: inc/customizer.php:858
-msgid 'Customize Home Page'
-msgstr ""
-
-#: inc/customizer.php:871
-msgid 'First select static page in homepage setting for front page.Below given edit button is to customize Home Page. Just click on the edit option, add whatever elements you want to include in the homepage, save the changes and you are good to go.'
 msgstr ""
 
 #: inc/customizer.php:880

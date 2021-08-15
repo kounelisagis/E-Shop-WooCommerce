@@ -3,7 +3,8 @@ jQuery(document).ready(function($) {
     var this_obj = vw_kids_plugin_activate_plugin;
 
     $('#gutenberg_editor .plugin-activation-redirect a').addClass('ive-redirect-to-dashboard');
-
+    $('#product_addons_editor .plugin-activation-redirect a').addClass('ive-redirect-to-dashboard');
+    
     $(document).on('click', '.vw-kids-plugin-install', function(event) {
        
         event.preventDefault();

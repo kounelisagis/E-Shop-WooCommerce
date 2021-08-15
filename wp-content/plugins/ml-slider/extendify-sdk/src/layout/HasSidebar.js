@@ -17,7 +17,7 @@ export default function HasSidebar({ children }) {
         </aside>
         <main
             id="extendify-templates"
-            tabIndex="0"
+            // tabIndex="0"
             className="w-full smp:l-12 sm:pt-6 h-full overflow-hidden">
             {children[1]}
         </main>

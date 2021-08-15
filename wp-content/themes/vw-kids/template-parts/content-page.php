@@ -13,7 +13,7 @@
     <?php the_post_thumbnail(); ?>
     <hr>
   <?php }?>
-  <h1><?php the_title();?></h1>
+  <h1 class="vw-page-title"><?php the_title();?></h1>
   <div class="entry-content"><?php the_content();?></div>
   <?php
       // If comments are open or we have at least one comment, load up the comment template.

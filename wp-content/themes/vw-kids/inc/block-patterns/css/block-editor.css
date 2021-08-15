@@ -1,8 +1,8 @@
 .main-banner .wp-block-column.cats li.wc-block-product-categories-list-item a, .main-banner h4, .main-banner p{ 
-  font-family: 'Montserrat', sans-serif !important;
+  font-family: 'Montserrat', sans-serif;
 }
 .main-banner h1, .main-banner h5, .main-banner .block-editor-rich-text__editable.wp-block-button__link, .product-section h2, .product-section .wc-block-grid__product-title, .product-section li.wc-block-grid__product:hover .wc-block-grid__product-onsale, .product-section .wc-block-grid__product-price.price{
-  font-family: 'Caveat Brush', cursive !important;
+  font-family: 'Caveat Brush', cursive;
 }
 /*category section*/
 .main-banner h5:before {

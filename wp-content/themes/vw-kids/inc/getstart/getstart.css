@@ -52,6 +52,9 @@ td.update-link, .info-link a, .col-left-pro a, a.vw-pattern-page-btn.button-prim
     border-radius: 3px;
     cursor: pointer;
 }
+.tab button{
+    padding: 3px 12px !important; 
+}
 .info-link a:hover, .col-left-pro a:hover, td.update-link:hover, a.vw-pattern-page-btn.button-primary.button:hover{
     background: #0771ab !important;
 }
@@ -74,7 +77,7 @@ td.update-link a {
 .vw-kids-pattern-page {
     margin-top: 20px;
 }
-#install_ibtana-visual-editor h3{
+#install_ibtana-visual-editor h3, #install_ibtana-ecommerce-product-addons h3{
     margin: 0px 0 20px;
 }
 td.table-img i.fas.fa-check {
@@ -265,6 +268,11 @@ a.doc-links:hover {
 }
 .block-pattern-link-customizer h3{
     margin: 25px 0 10px;
+}
+#product_addons_editor img {
+    width: auto;
+    box-shadow: 0 0 15px 1px #bbb;
+    margin-top: 10px;
 }
 /* -------- Plugin Activation Css --------- */
 

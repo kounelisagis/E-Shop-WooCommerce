@@ -101,7 +101,7 @@ function vw_kids_customize_register( $wp_customize ) {
 
 	//Pre-Loader
 	$wp_customize->add_setting( 'vw_kids_loader_enable',array(
-        'default' => 1,
+        'default' => 0,
         'transport' => 'refresh',
         'sanitize_callback' => 'vw_kids_switch_sanitization'
     ) );
@@ -110,20 +110,23 @@ function vw_kids_customize_register( $wp_customize ) {
         'section' => 'vw_kids_left_right'
     )));
 
-	$wp_customize->add_setting('vw_kids_loader_icon',array(
-        'default' => 'Two Way',
-        'sanitize_callback' => 'vw_kids_sanitize_choices'
+	$wp_customize->add_setting('vw_kids_preloader_bg_color', array(
+		'default'           => '#9cc44e',
+		'sanitize_callback' => 'sanitize_hex_color',
 	));
-	$wp_customize->add_control('vw_kids_loader_icon',array(
-        'type' => 'select',
-        'label' => __('Pre-Loader Type','vw-kids'),
-        'section' => 'vw_kids_left_right',
-        'choices' => array(
-            'Two Way' => __('Two Way','vw-kids'),
-            'Dots' => __('Dots','vw-kids'),
-            'Rotate' => __('Rotate','vw-kids')
-        ),
-	) );
+	$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'vw_kids_preloader_bg_color', array(
+		'label'    => __('Pre-Loader Background Color', 'vw-kids'),
+		'section'  => 'vw_kids_left_right',
+	)));
+
+	$wp_customize->add_setting('vw_kids_preloader_border_color', array(
+		'default'           => '#ffffff',
+		'sanitize_callback' => 'sanitize_hex_color',
+	));
+	$wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'vw_kids_preloader_border_color', array(
+		'label'    => __('Pre-Loader Border Color', 'vw-kids'),
+		'section'  => 'vw_kids_left_right',
+	)));
 
 	//Topbar
 	$wp_customize->add_section( 'vw_kids_topbar', array(
@@ -448,7 +451,7 @@ function vw_kids_customize_register( $wp_customize ) {
 	));
 
 	$wp_customize->add_setting( 'vw_kids_slider_speed', array(
-		'default'  => 3000,
+		'default'  => 4000,
 		'sanitize_callback'	=> 'vw_kids_sanitize_float'
 	) );
 	$wp_customize->add_control( 'vw_kids_slider_speed', array(
@@ -539,16 +542,6 @@ function vw_kids_customize_register( $wp_customize ) {
     ) );
     $wp_customize->add_control( new VW_Kids_Toggle_Switch_Custom_Control( $wp_customize, 'vw_kids_toggle_time',array(
 		'label' => esc_html__( 'Time','vw-kids' ),
-		'section' => 'vw_kids_post_settings'
-    )));
-
-    $wp_customize->add_setting( 'vw_kids_toggle_tags',array(
-		'default' => 1,
-		'transport' => 'refresh',
-		'sanitize_callback' => 'vw_kids_switch_sanitization'
-	));
-    $wp_customize->add_control( new VW_Kids_Toggle_Switch_Custom_Control( $wp_customize, 'vw_kids_toggle_tags', array(
-		'label' => esc_html__( 'Tags','vw-kids' ),
 		'section' => 'vw_kids_post_settings'
     )));
 
@@ -772,6 +765,16 @@ function vw_kids_customize_register( $wp_customize ) {
 		'panel' => 'blog_post_parent_panel',
 	));
 
+	$wp_customize->add_setting( 'vw_kids_toggle_tags',array(
+		'default' => 1,
+		'transport' => 'refresh',
+		'sanitize_callback' => 'vw_kids_switch_sanitization'
+	));
+    $wp_customize->add_control( new VW_Kids_Toggle_Switch_Custom_Control( $wp_customize, 'vw_kids_toggle_tags', array(
+		'label' => esc_html__( 'Tags','vw-kids' ),
+		'section' => 'vw_kids_single_blog_settings'
+    )));
+
 	$wp_customize->add_setting( 'vw_kids_single_blog_post_navigation_show_hide',array(
 		'default' => 1,
 		'transport' => 'refresh',
@@ -980,16 +983,6 @@ function vw_kids_customize_register( $wp_customize ) {
     ));  
     $wp_customize->add_control( new VW_Kids_Toggle_Switch_Custom_Control( $wp_customize, 'vw_kids_resp_slider_hide_show',array(
       'label' => esc_html__( 'Show / Hide Slider','vw-kids' ),
-      'section' => 'vw_kids_responsive_media'
-    )));
-
-	$wp_customize->add_setting( 'vw_kids_metabox_hide_show',array(
-      'default' => 1,
-      'transport' => 'refresh',
-      'sanitize_callback' => 'vw_kids_switch_sanitization'
-    ));  
-    $wp_customize->add_control( new VW_Kids_Toggle_Switch_Custom_Control( $wp_customize, 'vw_kids_metabox_hide_show',array(
-      'label' => esc_html__( 'Show / Hide Metabox','vw-kids' ),
       'section' => 'vw_kids_responsive_media'
     )));
 
@@ -1216,6 +1209,10 @@ function vw_kids_customize_register( $wp_customize ) {
 		'panel'    => 'woocommerce',
 	));
 
+	//Selective Refresh
+	$wp_customize->selective_refresh->add_partial( 'vw_kids_woocommerce_shop_page_sidebar', array( 'selector' => '.post-type-archive-product #sidebar', 
+		'render_callback' => 'vw_kids_customize_partial_vw_kids_woocommerce_shop_page_sidebar', ) );
+
     //Woocommerce Shop Page Sidebar
 	$wp_customize->add_setting( 'vw_kids_woocommerce_shop_page_sidebar',array(
 		'default' => 1,
@@ -1226,6 +1223,10 @@ function vw_kids_customize_register( $wp_customize ) {
 		'label' => esc_html__( 'Shop Page Sidebar','vw-kids' ),
 		'section' => 'vw_kids_woocommerce_section'
     )));
+
+    //Selective Refresh
+	$wp_customize->selective_refresh->add_partial( 'vw_kids_woocommerce_single_product_page_sidebar', array( 'selector' => '.single-product #sidebar', 
+		'render_callback' => 'vw_kids_customize_partial_vw_kids_woocommerce_single_product_page_sidebar', ) );
 
     //Woocommerce Single Product page Sidebar
 	$wp_customize->add_setting( 'vw_kids_woocommerce_single_product_page_sidebar',array(

@@ -27,8 +27,7 @@ export default function RequiredPluginsModal(props) {
 
     return <Modal
         title={props.title ?? __('Install required plugins', 'extendify-sdk')}
-        closeButtonLabel={__('No thanks, take me back', 'extendify-sdk')}
-        onRequestClose={closeModal}
+        isDismissible={false}
     >
         <p style={{
             maxWidth: '400px',

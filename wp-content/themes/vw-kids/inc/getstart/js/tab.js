@@ -11,3 +11,7 @@ function vw_kids_open_tab(evt, cityName) {
     document.getElementById(cityName).style.display = "block";
     evt.currentTarget.className += " active";
 }
+
+jQuery(document).ready(function () {
+    jQuery( ".tab-sec .tablinks" ).first().addClass( "active" );
+});

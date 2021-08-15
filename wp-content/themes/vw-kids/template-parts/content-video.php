@@ -37,22 +37,22 @@
     ?> 
     <div class="new-text">
       <h2 class="section-title"><a href="<?php echo esc_url( get_permalink() ); ?>" title="<?php echo the_title_attribute(); ?>"><?php the_title();?><span class="screen-reader-text"><?php the_title(); ?></span></a></h2>
-      <?php if( get_theme_mod( 'vw_kids_toggle_postdate',true) != '' || get_theme_mod( 'vw_kids_toggle_author',true) != '' || get_theme_mod( 'vw_kids_toggle_comments',true) != '') { ?>
+      <?php if( get_theme_mod( 'vw_kids_toggle_postdate',true) != '' || get_theme_mod( 'vw_kids_toggle_author',true) != '' || get_theme_mod( 'vw_kids_toggle_comments',true) != '' || get_theme_mod( 'vw_kids_toggle_time',true) != '') { ?>
         <div class="post-info">
           <?php if(get_theme_mod('vw_kids_toggle_postdate',true)==1){ ?>
-            <i class="fas fa-calendar-alt"></i><span class="entry-date"><a href="<?php echo esc_url( get_day_link( $vw_kids_archive_year, $vw_kids_archive_month, $vw_kids_archive_day)); ?>"><?php echo esc_html( get_the_date() ); ?><span class="screen-reader-text"><?php echo esc_html( get_the_date() ); ?></span></a></span><span>|</span>
+            <i class="fas fa-calendar-alt"></i><span class="entry-date"><a href="<?php echo esc_url( get_day_link( $vw_kids_archive_year, $vw_kids_archive_month, $vw_kids_archive_day)); ?>"><?php echo esc_html( get_the_date() ); ?><span class="screen-reader-text"><?php echo esc_html( get_the_date() ); ?></span></a></span>
           <?php } ?>
 
           <?php if(get_theme_mod('vw_kids_toggle_author',true)==1){ ?>
-            <i class="far fa-user"></i><span class="entry-author"><a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' )) ); ?>"><?php the_author(); ?><span class="screen-reader-text"><?php the_author(); ?></span></a></span><span>|</span>
+            <span>|</span> <i class="far fa-user"></i><span class="entry-author"><a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' )) ); ?>"><?php the_author(); ?><span class="screen-reader-text"><?php the_author(); ?></span></a></span>
           <?php } ?>
 
           <?php if(get_theme_mod('vw_kids_toggle_comments',true)==1){ ?>
-            <i class="fa fa-comments" aria-hidden="true"></i><span class="entry-comments"><?php comments_number( __('0 Comment', 'vw-kids'), __('0 Comments', 'vw-kids'), __('% Comments', 'vw-kids') ); ?> </span><span>|</span>
+            <span>|</span> <i class="fa fa-comments" aria-hidden="true"></i><span class="entry-comments"><?php comments_number( __('0 Comment', 'vw-kids'), __('0 Comments', 'vw-kids'), __('% Comments', 'vw-kids') ); ?> </span>
           <?php } ?>
 
           <?php if(get_theme_mod('vw_kids_toggle_time',true)==1){ ?>
-            <i class="far fa-clock"></i><span class="entry-time"><?php echo esc_html( get_the_time() ); ?></span>
+            <span>|</span> <i class="far fa-clock"></i><span class="entry-time"><?php echo esc_html( get_the_time() ); ?></span>
           <?php } ?>
           <hr>
         </div>

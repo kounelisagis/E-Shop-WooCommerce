@@ -40,13 +40,13 @@
           <?php endif; ?>
         </div>
       </div>
-      <div class="col-lg-6 col-md-6">
+      <div class="col-lg-6 col-md-6 align-self-lg-center align-self-md-center">
         <?php if(class_exists('woocommerce')){ ?>
           <?php get_product_search_form(); ?>
         <?php } ?>
       </div>
         <?php if( get_theme_mod( 'vw_kids_my_account_hide_show', true) != '') { ?>
-          <div class="col-lg-2 col-md-6">
+          <div class="col-lg-2 col-md-6 align-self-lg-center">
             <div class="account">
               <?php if(class_exists('woocommerce')){ ?>
                 <?php if ( is_user_logged_in() ) { ?>
@@ -60,7 +60,7 @@
           </div>
         <?php } ?>
         <?php if( get_theme_mod( 'vw_kids_cart_hide_show',true) != '') { ?>
-          <div class="col-lg-1 col-md-6">
+          <div class="col-lg-1 col-md-6 align-self-lg-center">
             <?php if(class_exists('woocommerce')){ ?>
               <span class="cart_no">
                 <a href="<?php if(function_exists('wc_get_cart_url')){ echo esc_url(wc_get_cart_url()); } ?>" title="<?php esc_attr_e( 'shopping cart','vw-kids' ); ?>"><i class="<?php echo esc_attr(get_theme_mod('vw_kids_cart_icon','fas fa-shopping-basket')); ?>"></i><span class="screen-reader-text"><?php esc_html_e( 'shopping cart','vw-kids' );?></span></a>

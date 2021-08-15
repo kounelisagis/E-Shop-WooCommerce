@@ -45,7 +45,7 @@ get_header(); ?>
         <div class="col-lg-9 col-md-9">
           <?php if( get_theme_mod( 'vw_kids_slider_hide_show', false) != '' || get_theme_mod( 'vw_kids_resp_slider_hide_show', false) != '') { ?>
             <section id="slider">
-              <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="<?php echo esc_attr(get_theme_mod( 'vw_kids_slider_speed',3000)) ?>"> 
+              <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="<?php echo esc_attr(get_theme_mod( 'vw_kids_slider_speed',4000)) ?>"> 
                 <?php $vw_kids_slider_pages = array();
                   for ( $count = 1; $count <= 4; $count++ ) {
                     $mod = intval( get_theme_mod( 'vw_kids_slider_page' . $count ));
@@ -87,12 +87,12 @@ get_header(); ?>
                     <div class="no-postfound"></div>
                 <?php endif;
                 endif;?>
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"><i class="fas fa-chevron-left"></i></span>
+                <a class="carousel-control-prev" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev" role="button">
+                  <span class="carousel-control-prev-icon w-auto h-auto" aria-hidden="true"><i class="fas fa-chevron-left"></i></span>
                   <span class="screen-reader-text"><?php esc_html_e( 'Previous','vw-kids' );?></span>
                 </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"><i class="fas fa-chevron-right"></i></span>
+                <a class="carousel-control-next" data-bs-target="#carouselExampleCaptions" data-bs-slide="next" role="button">
+                  <span class="carousel-control-next-icon w-auto h-auto" aria-hidden="true"><i class="fas fa-chevron-right"></i></span>
                   <span class="screen-reader-text"><?php esc_html_e( 'Next','vw-kids' );?></span>
                 </a>
               </div>

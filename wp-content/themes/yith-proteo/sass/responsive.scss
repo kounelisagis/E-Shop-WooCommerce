@@ -118,6 +118,50 @@ $yith_proteo_large_desktop_device_width_min: '/*<yith_proteo_large_desktop_devic
 			}
 		}
 	}
+
+	aside#secondary.sidebar-position-top {
+		display: grid;
+		grid-template-rows: 1fr;
+		grid-column-gap: 30px;
+		grid-row-gap: 30px;
+		&.widgets_per_row_1 {
+			grid-template-columns: repeat(1, 1fr);
+		}
+		&.widgets_per_row_2 {
+			grid-template-columns: repeat(2, 1fr);
+		}
+		&.widgets_per_row_3 {
+			grid-template-columns: repeat(3, 1fr);
+		}
+		&.widgets_per_row_4 {
+			grid-template-columns: repeat(4, 1fr);
+		}
+		&.widgets_per_row_5 {
+			grid-template-columns: repeat(5, 1fr);
+		}
+		&.widgets_per_row_6 {
+			grid-template-columns: repeat(6, 1fr);
+		}
+		&.widgets_per_row_7 {
+			grid-template-columns: repeat(7, 1fr);
+		}
+		&.widgets_per_row_8 {
+			grid-template-columns: repeat(8, 1fr);
+		}
+		&.widgets_per_row_9 {
+			grid-template-columns: repeat(9, 1fr);
+		}
+		&.widgets_per_row_10 {
+			grid-template-columns: repeat(10, 1fr);
+		}
+		&.widgets_per_row_11 {
+			grid-template-columns: repeat(11, 1fr);
+		}
+		&.widgets_per_row_12 {
+			grid-template-columns: repeat(12, 1fr);
+		}
+	}
+	
 }
 
 /** Large devices (desktops, 992px and up) **/
@@ -525,10 +569,35 @@ $yith_proteo_large_desktop_device_width_min: '/*<yith_proteo_large_desktop_devic
 	.single-product div.product .summary.entry-summary .product_title {
 		font-size: var(--proteo-mobile_single_product_page_title_font_size, 36px);
 	}
-	.single-product div.product .summary.entry-summary .woocommerce-product-details__short-description p,
-	.single-product .woocommerce-tabs .panel,
-	.single-product .woocommerce-tabs ul.tabs li a {
-		font-size: 1rem;
+
+	.single-product {
+		div.product .summary.entry-summary .woocommerce-product-details__short-description p,
+		.woocommerce-tabs .panel,
+		.woocommerce-tabs ul.tabs li a {
+			font-size: 1rem;
+		}
+		div.product {
+			.summary.entry-summary form.variations_form table.variations {
+				tr>td .select2-container {
+					max-width: calc(100% - 60px);
+				}
+				tr>td {
+					display: block;
+					width: 100%;
+				}
+				tr>td.label {
+					padding-bottom: 10px;
+				}
+			}
+		}
+	}
+
+	.select2-dropdown.select2-dropdown--below, .selectBox-dropdown-menu.select2-dropdown--below {
+		top: 15px;
+	}
+
+	.main-navigation ul ul:before {
+		display: none;
 	}
 }
 /* Mobile device */

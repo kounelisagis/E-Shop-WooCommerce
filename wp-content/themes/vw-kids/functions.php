@@ -23,6 +23,8 @@ function vw_kids_setup() {
 	add_theme_support( 'title-tag' );
 	add_theme_support( 'align-wide' );
 	add_theme_support( 'wp-block-styles' );
+	add_theme_support( 'responsive-embeds' );
+	add_theme_support( 'html5', array( 'comment-list', 'search-form', 'comment-form', ) );
 	add_theme_support( 'custom-logo', array(
 		'height'      => 240,
 		'width'       => 240,
@@ -366,7 +368,7 @@ define('VW_KIDS_CREDIT',__('https://www.vwthemes.com/themes/free-kids-wordpress-
 
 if ( ! function_exists( 'vw_kids_credit' ) ) {
 	function vw_kids_credit(){
-		echo "<a href=".esc_url(VW_KIDS_CREDIT).">".esc_html__('Kids WordPress Theme','vw-kids')."</a>";
+		echo "<a href=".esc_url(VW_KIDS_CREDIT)." target='_blank'>".esc_html__('Kids WordPress Theme','vw-kids')."</a>";
 	}
 }
 

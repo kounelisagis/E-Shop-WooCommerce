@@ -11,8 +11,7 @@ export default function NeedsPermissionModal() {
     const requiredPlugins = wantedTemplate?.fields?.required_plugins || []
     return <Modal
         title={__('Plugins required', 'extendify-sdk')}
-        closeButtonLabel={__('Return to library', 'extendify-sdk')}
-        onRequestClose={closeModal}>
+        isDismissible={false}>
         <p style={{
             maxWidth: '400px',
         }}>

@@ -1,10 +1,10 @@
 === VW Kids ===
 Contributors: VWthemes
-Tags: left-sidebar, right-sidebar, one-column, two-columns, three-columns, four-columns, grid-layout, wide-blocks, block-styles, flexible-header, block-patterns, custom-colors, custom-background, custom-logo, custom-menu, custom-header, editor-style, featured-images, footer-widgets, sticky-post, full-width-template, theme-options, translation-ready, threaded-comments, rtl-language-support, blog, portfolio, e-commerce
+Tags: left-sidebar, right-sidebar, one-column, two-columns, three-columns, four-columns, grid-layout, wide-blocks, block-styles, flexible-header, block-patterns, custom-colors, custom-background, custom-logo, custom-menu, custom-header, editor-style, featured-images, footer-widgets, sticky-post, full-width-template, theme-options, translation-ready, threaded-comments, post-formats, rtl-language-support, blog, portfolio, e-commerce
 Requires at least: 5.0
-Tested up to: 5.7.1
+Tested up to: 5.8
 Requires PHP: 7.2.14
-Stable tag: 0.6.1
+Stable tag: 0.6.6
 License: GPLv3.0 or later
 License URI: http://www.gnu.org/licenses/gpl-v3.0.html
 
@@ -12,7 +12,7 @@ VW Kids is a colourful, youthful, fresh and versatile kids WordPress theme for k
 
 == Description ==
 
-VW Kids is a colourful, youthful, fresh and versatile kids WordPress theme for kindergartens, crèches, play schools, preschools, day care centres, babysitters, primary and secondary schools, education and training centres, art classes and nurseries. It is a multipurpose theme which can be used for kids toys and games store, kids skin care products, clothing and shoes mall, toystore, kids accesories store, kids zone, kids world, kids book store, childcare, preschool, kindergarten, kids life, toy, game, doll, playroom, plaything, toylike, play thing, yo yo, beanie baby, playock, action figure, delight child, playgame, rubber duck, dorothy, playful, child play, kids club, baby food store, puppet, children's boutique, toy car, board games, kids entertainment, kids party, kids play, children art & craft school baby care range supplier, afterschool activities clubs and similar educational organizations, kids school bags and stationery store, toy gifts shop and kids fashion store. It can be used by kids health care blogger and portfolio designers. It is a totally responsive, SEO enabled, extensive typography options, grid layout multilingual, Featured Images, cross-browser compatible and retina ready theme with multiple header and footer styles and various blog layouts. VW Kids performs all the advanced functions without ever bloating the website. It has a range of social media icons to promote your services. It has smart placement of call to action (CTA) button and other components throughout the theme to make a user-friendly website. Its design is made attractive with eye-catching colours and beautiful fonts to impress visitors at the first sight. This kids theme is fully customizable and compatible with the new WordPress version. It has clean and bug-free codes making it a high quality theme.
+VW Kids is a colourful, youthful, fresh and versatile kids WordPress theme for kindergartens, crèches, play schools, preschools, day care centres, babysitters, primary and secondary schools, education and training centres, art classes and nurseries. It is a multipurpose theme which can be used for kids toys and games store, kids skin care products, clothing and shoes mall, toystore, kids accesories store, kids zone, kids world, kids book store, childcare, toyline, playware, preschool, kindergarten, kids life, toy, Soft Toys, baby health care, game, doll, playroom, plaything, Baby Food Cooking Instructor, Cloth Diaper Service, Baby Proofing Service, toylike, play thing, yo yo, beanie baby, playock, action figure,  playgame, rubber duck, dorothy, playful, child play, kids club, baby food store, puppet, children's boutique, toy car, board games, kids entertainment, kids party, kids play, children art & craft school baby care range supplier, afterschool activities clubs and similar educational organizations, kids school bags and stationery store, toy gifts shop and kids fashion store. It can be used by kids health care blogger and portfolio designers. It is a totally responsive, SEO enabled, extensive typography options, grid layout multilingual, Featured Images, cross-browser compatible and retina ready theme with multiple header and footer styles and various blog layouts. VW Kids performs all the advanced functions without ever bloating the website. It has a range of social media icons to promote your services. It has smart placement of call to action (CTA) button and other components throughout the theme to make a user-friendly website. Its design is made attractive with eye-catching colours and beautiful fonts to impress visitors at the first sight. This kids theme is fully customizable and compatible with the new WordPress version. It has clean and bug-free codes making it a high quality theme.
 
 == Changelog ==
 
@@ -225,8 +225,62 @@ VW Kids is a colourful, youthful, fresh and versatile kids WordPress theme for k
 * Added blog post time & single post time.
 * Added show / hide blog post time & single post time option in customizer.
 * Resolved error of when scroll sticky header border is dispalying.
-* Checked logo and header image on other pages.
 * Added hover on logo.
+
+= 0.6.2 =
+* Checked logo and header image on other pages.
+* Changed preloader.
+* Added pre-Loader bg & border Color option in customizer.
+* Updated language folder.
+
+= 0.6.3 =
+* Added h1 class in page-content.
+* Resolved error of metabox slash appears.
+* Added tags.
+* Added css for button padding.
+* Removed single post page extra focus.
+* Changed show/hide tags option to single post.
+* Resolved error of phone no link.
+* Resolved preloader spinning error.
+* Added latest bootstrap version.
+* Added woocommerce product addon tab in get started.
+* Added css for woocommerce product tab in get started.
+* Changed slider classes.
+* Updated language folder.
+
+= 0.6.4 =
+* Resolved elementor loader issue.
+* Set loader false in default.
+* Changes in scrollup css.
+* Removed content-vw classes from style css.
+* Checked responsive and done css of slider.
+* Changed loader js.
+* Resolved theme check search error.
+* Resolved error of content align when logo size increased.
+* Removed commented css.
+* Removed padding and margin from p and ul and h1 etc.
+* Added js and changed id of product addon tab in get started.
+* Changed bootstrap classes.
+* Remove product icon image from get started 
+* Added opacity to hr class.
+
+= 0.6.5 =
+* Resolved issue of footer widget padding and bg color. 
+* Checked padding of toggle button in responsive. 
+* Checked submenu .
+* Added target="_blank" in get started & copyright link.
+* Removed border-bottom from a:focus.
+
+= 0.6.6 =
+* Resolved theme_support error of theme check.
+* Added shop page and single product page sidebar selective refresh.
+* Added time condition in metabox.
+* Done css of scrollup in boxed width and wide width.
+* Done css of single post and woocommerce page.
+* Changes in get started product tab.
+* Changed loader js.
+* Added loader class in global color.
+* Updated language folder.
 
 == Resources ==
 
@@ -238,9 +292,9 @@ Theme is Built using the following resource bundles.
 = Bootstrap =
 * Mark Otto
 * copyright 2011-2020, Mark Otto
-* https://github.com/twbs/bootstrap/releases/download/v4.0.0/bootstrap-4.0.0-dist.zip
-* License: Code released under the MIT License. v4.4.1
-* https://github.com/twbs/bootstrap/blob/master/LICENSE
+* https://github.com/twbs/bootstrap/releases/download/v5.0.1/bootstrap-5.0.1-dist.zip
+* License: Code released under the MIT License.
+* https://github.com/twbs/bootstrap/blob/main/LICENSE
 
 = Font-Awesome =
 * Davegandy

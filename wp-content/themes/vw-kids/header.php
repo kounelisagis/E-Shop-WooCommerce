@@ -34,17 +34,24 @@
 		</div>
 	</header>
 
-	<?php if(get_theme_mod('vw_kids_loader_enable',true)==1){ ?>
+	<?php if(get_theme_mod('vw_kids_loader_enable',false) != '') { ?>
 	  	<div id="preloader">
-		    <div id="status">
-      			<?php $vw_kids_theme_lay = get_theme_mod( 'vw_kids_loader_icon','Two Way');
-		        if($vw_kids_theme_lay == 'Two Way'){ ?>
-		        	<img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/two-way.gif" alt="" role="img"/>
-	      		<?php }else if($vw_kids_theme_lay == 'Dots'){ ?>
-		        	<img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/dots.gif" alt="" role="img"/>
-	      		<?php }else if($vw_kids_theme_lay == 'Rotate'){ ?>
-		        	<img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/rotate.gif" alt="" role="img"/>
-		      <?php } ?>
+		    <div class="loader-inner">
+		      <div class="loader-line-wrap">
+		        <div class="loader-line"></div>
+		      </div>
+		      <div class="loader-line-wrap">
+		        <div class="loader-line"></div>
+		      </div>
+		      <div class="loader-line-wrap">
+		        <div class="loader-line"></div>
+		      </div>
+		      <div class="loader-line-wrap">
+		        <div class="loader-line"></div>
+		      </div>
+		      <div class="loader-line-wrap">
+		        <div class="loader-line"></div>
+		      </div>
 		    </div>
 	  	</div>
 	<?php } ?>

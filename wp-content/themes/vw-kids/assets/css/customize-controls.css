@@ -80,6 +80,7 @@ input.typography-font-color {
 .customize-control-typography ul{
     border-bottom: solid 1px #999;
     padding-bottom: 12px;
+    padding-left: 0;
 }
 li#customize-control-vw_kids_h1_typography,
 li#customize-control-vw_kids_h2_typography,
@@ -97,6 +98,9 @@ img.vw-kids-radio-img-img {
 }
 img.vw-kids-radio-img-selected {
   border: solid 2px #0085ba;
+}
+ul#vw-kids-img-container, ul, ol{
+  padding-left: 0;
 }
 /* ---------Excerpt & Logo --------- */
 input#_customize-input-vw_kids_excerpt_number,

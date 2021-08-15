@@ -40,9 +40,10 @@ function vw_kids_mostrar_guide() {
 
     <div class="tab-sec">
 		<div class="tab">
-			<button class="tablinks" onclick="vw_kids_open_tab(event, 'gutenberg_editor')"><?php esc_html_e( 'Setup With Gutunberg Block', 'vw-kids' ); ?></button>
+			<button class="tablinks" onclick="vw_kids_open_tab(event, 'lite_theme')"><?php esc_html_e( 'Setup With Customizer', 'vw-kids' ); ?></button>
 			<button class="tablinks" onclick="vw_kids_open_tab(event, 'block_pattern')"><?php esc_html_e( 'Setup With Block Pattern', 'vw-kids' ); ?></button>
-		  	<button class="tablinks" onclick="vw_kids_open_tab(event, 'lite_theme')"><?php esc_html_e( 'Setup With Customizer', 'vw-kids' ); ?></button>
+			<button class="tablinks" onclick="vw_kids_open_tab(event, 'gutenberg_editor')"><?php esc_html_e( 'Setup With Gutunberg Block', 'vw-kids' ); ?></button>
+			<button class="tablinks" onclick="vw_kids_open_tab(event, 'product_addons_editor')"><?php esc_html_e( 'Woocommerce Product Addons', 'vw-kids' ); ?></button>
 		  	<button class="tablinks" onclick="vw_kids_open_tab(event, 'theme_pro')"><?php esc_html_e( 'Get Premium', 'vw-kids' ); ?></button>
 		  	<button class="tablinks" onclick="vw_kids_open_tab(event, 'free_pro')"><?php esc_html_e( 'Support', 'vw-kids' ); ?></button>
 		</div>
@@ -54,158 +55,7 @@ function vw_kids_mostrar_guide() {
 				$vw_kids_plugin_custom_css ='display: block';
 			}
 		?>
-		<div id="gutenberg_editor" class="tabcontent open">
-			<?php if(!class_exists('Ibtana_Visual_Editor_Menu_Class')){ 
-			$plugin_ins = VW_Kids_Plugin_Activation_Settings::get_instance();
-			$vw_kids_actions = $plugin_ins->recommended_actions;
-			?>
-				<div class="vw-kids-recommended-plugins">
-				    <div class="vw-kids-action-list">
-				        <?php if ($vw_kids_actions): foreach ($vw_kids_actions as $key => $vw_kids_actionValue): ?>
-				                <div class="vw-kids-action" id="<?php echo esc_attr($vw_kids_actionValue['id']);?>">
-			                        <div class="action-inner plugin-activation-redirect">
-			                            <h3 class="action-title"><?php echo esc_html($vw_kids_actionValue['title']); ?></h3>
-			                            <div class="action-desc"><?php echo esc_html($vw_kids_actionValue['desc']); ?></div>
-			                            <?php echo wp_kses_post($vw_kids_actionValue['link']); ?>
-			                        </div>
-				                </div>
-				            <?php endforeach;
-				        endif; ?>
-				    </div>
-				</div>
-			<?php }else{ ?>
-				<h3><?php esc_html_e( 'Gutunberg Blocks', 'vw-kids' ); ?></h3>
-				<hr class="h3hr">
-				<div class="vw-kids-pattern-page">
-			    	<a href="<?php echo esc_url( admin_url( 'admin.php?page=ibtana-visual-editor-templates' ) ); ?>" class="vw-pattern-page-btn ibtana-dashboard-page-btn button-primary button"><?php esc_html_e('Ibtana Settings','vw-kids'); ?></a>
-			    </div>
-
-			    <div class="link-customizer-with-guternberg-ibtana">
-					<h3><?php esc_html_e( 'Link to customizer', 'vw-kids' ); ?></h3>
-					<hr class="h3hr">
-					<div class="first-row">
-						<div class="row-box">
-							<div class="row-box1">
-								<span class="dashicons dashicons-buddicons-buddypress-logo"></span><a href="<?php echo esc_url( admin_url('customize.php?autofocus[control]=custom_logo') ); ?>" target="_blank"><?php esc_html_e('Upload your logo','vw-kids'); ?></a>
-							</div>
-							<div class="row-box2">
-								<span class="dashicons dashicons-networking"></span><a href="<?php echo esc_url( admin_url('customize.php?autofocus[section]=vw_kids_social_icon_settings') ); ?>" target="_blank"><?php esc_html_e('Social Icons','vw-kids'); ?></a>
-							</div>
-						</div>
-						<div class="row-box">
-							<div class="row-box1">
-								<span class="dashicons dashicons-menu"></span><a href="<?php echo esc_url( admin_url('customize.php?autofocus[panel]=nav_menus') ); ?>" target="_blank"><?php esc_html_e('Menus','vw-kids'); ?></a>
-							</div>
-							
-							<div class="row-box2">
-								<span class="dashicons dashicons-text-page"></span><a href="<?php echo esc_url( admin_url('customize.php?autofocus[section]=vw_kids_footer') ); ?>" target="_blank"><?php esc_html_e('Footer Text','vw-kids'); ?></a>
-							</div>
-						</div>
-
-						<div class="row-box">
-							<div class="row-box1">
-								<span class="dashicons dashicons-format-gallery"></span><a href="<?php echo esc_url( admin_url('customize.php?autofocus[section]=vw_kids_post_settings') ); ?>" target="_blank"><?php esc_html_e('Post settings','vw-kids'); ?></a>
-							</div>
-							 <div class="row-box2">
-								<span class="dashicons dashicons-align-center"></span><a href="<?php echo esc_url( admin_url('customize.php?autofocus[section]=vw_kids_woocommerce_section') ); ?>" target="_blank"><?php esc_html_e('WooCommerce Layout','vw-kids'); ?></a>
-							</div> 
-						</div>
-						
-						<div class="row-box">
-							<div class="row-box1">
-								<span class="dashicons dashicons-admin-generic"></span><a href="<?php echo esc_url( admin_url('customize.php?autofocus[section]=vw_kids_left_right') ); ?>" target="_blank"><?php esc_html_e('General Settings','vw-kids'); ?></a>
-							</div>
-							 <div class="row-box2">
-								<span class="dashicons dashicons-screenoptions"></span><a href="<?php echo esc_url( admin_url('customize.php?autofocus[panel]=widgets') ); ?>" target="_blank"><?php esc_html_e('Footer Widget','vw-kids'); ?></a>
-							</div> 
-						</div>
-					</div>
-				</div>
-			<?php } ?>
-		</div>
-
-		<div id="block_pattern" class="tabcontent">
-			<?php if(!class_exists('Ibtana_Visual_Editor_Menu_Class')){ 
-				$plugin_ins = VW_Kids_Plugin_Activation_Settings::get_instance();
-				$vw_kids_actions = $plugin_ins->recommended_actions;
-				?>
-				<div class="vw-kids-recommended-plugins">
-				    <div class="vw-kids-action-list">
-				        <?php if ($vw_kids_actions): foreach ($vw_kids_actions as $key => $vw_kids_actionValue): ?>
-				                <div class="vw-kids-action" id="<?php echo esc_attr($vw_kids_actionValue['id']);?>">
-			                        <div class="action-inner">
-			                            <h3 class="action-title"><?php echo esc_html($vw_kids_actionValue['title']); ?></h3>
-			                            <div class="action-desc"><?php echo esc_html($vw_kids_actionValue['desc']); ?></div>
-			                            <?php echo wp_kses_post($vw_kids_actionValue['link']); ?>
-			                            <a class="ibtana-skip-btn" href="javascript:void(0);" get-start-tab-id="gutenberg-editor-tab"><?php esc_html_e('Skip','vw-kids'); ?></a>
-			                        </div>
-				                </div>
-				            <?php endforeach;
-				        endif; ?>
-				    </div>
-				</div>
-			<?php } ?>
-			<div class="gutenberg-editor-tab" style="<?php echo esc_attr($vw_kids_plugin_custom_css); ?>">
-				<div class="block-pattern-img">
-				  	<h3><?php esc_html_e( 'Block Patterns', 'vw-kids' ); ?></h3>
-					<hr class="h3hr">
-					<p><?php esc_html_e('Follow the below instructions to setup Home page with Block Patterns.','vw-kids'); ?></p>
-	              	<p><b><?php esc_html_e('Click on Below Add new page button >> Click on "+" Icon >> Click Pattern Tab >> Click on homepage sections >> Publish.','vw-kids'); ?></span></b></p>
-	              	<div class="vw-kids-pattern-page">
-				    	<a href="javascript:void(0)" class="vw-pattern-page-btn button-primary button"><?php esc_html_e('Add New Page','vw-kids'); ?></a>
-				    </div>
-
-	          		<img src="<?php echo esc_url(get_template_directory_uri()); ?>/inc/getstart/images/block-pattern.png" alt="" />	
-	             </div>
-
-              	<div class="block-pattern-link-customizer">
-	              	<div class="link-customizer-with-block-pattern">
-						<h3><?php esc_html_e( 'Link to customizer', 'vw-kids' ); ?></h3>
-						<hr class="h3hr">
-						<div class="first-row">
-							<div class="row-box">
-								<div class="row-box1">
-									<span class="dashicons dashicons-buddicons-buddypress-logo"></span><a href="<?php echo esc_url( admin_url('customize.php?autofocus[control]=custom_logo') ); ?>" target="_blank"><?php esc_html_e('Upload your logo','vw-kids'); ?></a>
-								</div>
-								<div class="row-box2">
-									<span class="dashicons dashicons-networking"></span><a href="<?php echo esc_url( admin_url('customize.php?autofocus[section]=vw_kids_social_icon_settings') ); ?>" target="_blank"><?php esc_html_e('Social Icons','vw-kids'); ?></a>
-								</div>
-							</div>
-							<div class="row-box">
-								<div class="row-box1">
-									<span class="dashicons dashicons-menu"></span><a href="<?php echo esc_url( admin_url('customize.php?autofocus[panel]=nav_menus') ); ?>" target="_blank"><?php esc_html_e('Menus','vw-kids'); ?></a>
-								</div>
-								
-								<div class="row-box2">
-									<span class="dashicons dashicons-text-page"></span><a href="<?php echo esc_url( admin_url('customize.php?autofocus[section]=vw_kids_footer') ); ?>" target="_blank"><?php esc_html_e('Footer Text','vw-kids'); ?></a>
-								</div>
-							</div>
-
-							<div class="row-box">
-								<div class="row-box1">
-									<span class="dashicons dashicons-format-gallery"></span><a href="<?php echo esc_url( admin_url('customize.php?autofocus[section]=vw_kids_post_settings') ); ?>" target="_blank"><?php esc_html_e('Post settings','vw-kids'); ?></a>
-								</div>
-								 <div class="row-box2">
-									<span class="dashicons dashicons-align-center"></span><a href="<?php echo esc_url( admin_url('customize.php?autofocus[section]=vw_kids_woocommerce_section') ); ?>" target="_blank"><?php esc_html_e('WooCommerce Layout','vw-kids'); ?></a>
-								</div> 
-							</div>
-							
-							<div class="row-box">
-								<div class="row-box1">
-									<span class="dashicons dashicons-admin-generic"></span><a href="<?php echo esc_url( admin_url('customize.php?autofocus[section]=vw_kids_left_right') ); ?>" target="_blank"><?php esc_html_e('General Settings','vw-kids'); ?></a>
-								</div>
-								 <div class="row-box2">
-									<span class="dashicons dashicons-screenoptions"></span><a href="<?php echo esc_url( admin_url('customize.php?autofocus[panel]=widgets') ); ?>" target="_blank"><?php esc_html_e('Footer Widget','vw-kids'); ?></a>
-								</div> 
-							</div>
-						</div>
-					</div>
-				</div>	
-
-	        </div>
-		</div>
-
-		<div id="lite_theme" class="tabcontent">
+		<div id="lite_theme" class="tabcontent open">
 			<?php if(!class_exists('Ibtana_Visual_Editor_Menu_Class')){ 
 				$plugin_ins = VW_Kids_Plugin_Activation_Settings::get_instance();
 				$vw_kids_actions = $plugin_ins->recommended_actions;
@@ -321,6 +171,183 @@ function vw_kids_mostrar_guide() {
 	                </ul>
 			  	</div>
 			</div>
+		</div>
+
+		<div id="block_pattern" class="tabcontent">
+			<?php if(!class_exists('Ibtana_Visual_Editor_Menu_Class')){ 
+				$plugin_ins = VW_Kids_Plugin_Activation_Settings::get_instance();
+				$vw_kids_actions = $plugin_ins->recommended_actions;
+				?>
+				<div class="vw-kids-recommended-plugins">
+				    <div class="vw-kids-action-list">
+				        <?php if ($vw_kids_actions): foreach ($vw_kids_actions as $key => $vw_kids_actionValue): ?>
+				                <div class="vw-kids-action" id="<?php echo esc_attr($vw_kids_actionValue['id']);?>">
+			                        <div class="action-inner">
+			                            <h3 class="action-title"><?php echo esc_html($vw_kids_actionValue['title']); ?></h3>
+			                            <div class="action-desc"><?php echo esc_html($vw_kids_actionValue['desc']); ?></div>
+			                            <?php echo wp_kses_post($vw_kids_actionValue['link']); ?>
+			                            <a class="ibtana-skip-btn" href="javascript:void(0);" get-start-tab-id="gutenberg-editor-tab"><?php esc_html_e('Skip','vw-kids'); ?></a>
+			                        </div>
+				                </div>
+				            <?php endforeach;
+				        endif; ?>
+				    </div>
+				</div>
+			<?php } ?>
+			<div class="gutenberg-editor-tab" style="<?php echo esc_attr($vw_kids_plugin_custom_css); ?>">
+				<div class="block-pattern-img">
+				  	<h3><?php esc_html_e( 'Block Patterns', 'vw-kids' ); ?></h3>
+					<hr class="h3hr">
+					<p><?php esc_html_e('Follow the below instructions to setup Home page with Block Patterns.','vw-kids'); ?></p>
+	              	<p><b><?php esc_html_e('Click on Below Add new page button >> Click on "+" Icon >> Click Pattern Tab >> Click on homepage sections >> Publish.','vw-kids'); ?></span></b></p>
+	              	<div class="vw-kids-pattern-page">
+				    	<a href="javascript:void(0)" class="vw-pattern-page-btn button-primary button"><?php esc_html_e('Add New Page','vw-kids'); ?></a>
+				    </div>
+
+	          		<img src="<?php echo esc_url(get_template_directory_uri()); ?>/inc/getstart/images/block-pattern.png" alt="" />	
+	             </div>
+
+              	<div class="block-pattern-link-customizer">
+	              	<div class="link-customizer-with-block-pattern">
+						<h3><?php esc_html_e( 'Link to customizer', 'vw-kids' ); ?></h3>
+						<hr class="h3hr">
+						<div class="first-row">
+							<div class="row-box">
+								<div class="row-box1">
+									<span class="dashicons dashicons-buddicons-buddypress-logo"></span><a href="<?php echo esc_url( admin_url('customize.php?autofocus[control]=custom_logo') ); ?>" target="_blank"><?php esc_html_e('Upload your logo','vw-kids'); ?></a>
+								</div>
+								<div class="row-box2">
+									<span class="dashicons dashicons-networking"></span><a href="<?php echo esc_url( admin_url('customize.php?autofocus[section]=vw_kids_social_icon_settings') ); ?>" target="_blank"><?php esc_html_e('Social Icons','vw-kids'); ?></a>
+								</div>
+							</div>
+							<div class="row-box">
+								<div class="row-box1">
+									<span class="dashicons dashicons-menu"></span><a href="<?php echo esc_url( admin_url('customize.php?autofocus[panel]=nav_menus') ); ?>" target="_blank"><?php esc_html_e('Menus','vw-kids'); ?></a>
+								</div>
+								
+								<div class="row-box2">
+									<span class="dashicons dashicons-text-page"></span><a href="<?php echo esc_url( admin_url('customize.php?autofocus[section]=vw_kids_footer') ); ?>" target="_blank"><?php esc_html_e('Footer Text','vw-kids'); ?></a>
+								</div>
+							</div>
+
+							<div class="row-box">
+								<div class="row-box1">
+									<span class="dashicons dashicons-format-gallery"></span><a href="<?php echo esc_url( admin_url('customize.php?autofocus[section]=vw_kids_post_settings') ); ?>" target="_blank"><?php esc_html_e('Post settings','vw-kids'); ?></a>
+								</div>
+								 <div class="row-box2">
+									<span class="dashicons dashicons-align-center"></span><a href="<?php echo esc_url( admin_url('customize.php?autofocus[section]=vw_kids_woocommerce_section') ); ?>" target="_blank"><?php esc_html_e('WooCommerce Layout','vw-kids'); ?></a>
+								</div> 
+							</div>
+							
+							<div class="row-box">
+								<div class="row-box1">
+									<span class="dashicons dashicons-admin-generic"></span><a href="<?php echo esc_url( admin_url('customize.php?autofocus[section]=vw_kids_left_right') ); ?>" target="_blank"><?php esc_html_e('General Settings','vw-kids'); ?></a>
+								</div>
+								 <div class="row-box2">
+									<span class="dashicons dashicons-screenoptions"></span><a href="<?php echo esc_url( admin_url('customize.php?autofocus[panel]=widgets') ); ?>" target="_blank"><?php esc_html_e('Footer Widget','vw-kids'); ?></a>
+								</div> 
+							</div>
+						</div>
+					</div>
+				</div>	
+
+	        </div>
+		</div>
+
+		<div id="gutenberg_editor" class="tabcontent">
+			<?php if(!class_exists('Ibtana_Visual_Editor_Menu_Class')){ 
+			$plugin_ins = VW_Kids_Plugin_Activation_Settings::get_instance();
+			$vw_kids_actions = $plugin_ins->recommended_actions;
+			?>
+				<div class="vw-kids-recommended-plugins">
+				    <div class="vw-kids-action-list">
+				        <?php if ($vw_kids_actions): foreach ($vw_kids_actions as $key => $vw_kids_actionValue): ?>
+				                <div class="vw-kids-action" id="<?php echo esc_attr($vw_kids_actionValue['id']);?>">
+			                        <div class="action-inner plugin-activation-redirect">
+			                            <h3 class="action-title"><?php echo esc_html($vw_kids_actionValue['title']); ?></h3>
+			                            <div class="action-desc"><?php echo esc_html($vw_kids_actionValue['desc']); ?></div>
+			                            <?php echo wp_kses_post($vw_kids_actionValue['link']); ?>
+			                        </div>
+				                </div>
+				            <?php endforeach;
+				        endif; ?>
+				    </div>
+				</div>
+			<?php }else{ ?>
+				<h3><?php esc_html_e( 'Gutunberg Blocks', 'vw-kids' ); ?></h3>
+				<hr class="h3hr">
+				<div class="vw-kids-pattern-page">
+			    	<a href="<?php echo esc_url( admin_url( 'admin.php?page=ibtana-visual-editor-templates' ) ); ?>" class="vw-pattern-page-btn ibtana-dashboard-page-btn button-primary button"><?php esc_html_e('Ibtana Settings','vw-kids'); ?></a>
+			    </div>
+
+			    <div class="link-customizer-with-guternberg-ibtana">
+					<h3><?php esc_html_e( 'Link to customizer', 'vw-kids' ); ?></h3>
+					<hr class="h3hr">
+					<div class="first-row">
+						<div class="row-box">
+							<div class="row-box1">
+								<span class="dashicons dashicons-buddicons-buddypress-logo"></span><a href="<?php echo esc_url( admin_url('customize.php?autofocus[control]=custom_logo') ); ?>" target="_blank"><?php esc_html_e('Upload your logo','vw-kids'); ?></a>
+							</div>
+							<div class="row-box2">
+								<span class="dashicons dashicons-networking"></span><a href="<?php echo esc_url( admin_url('customize.php?autofocus[section]=vw_kids_social_icon_settings') ); ?>" target="_blank"><?php esc_html_e('Social Icons','vw-kids'); ?></a>
+							</div>
+						</div>
+						<div class="row-box">
+							<div class="row-box1">
+								<span class="dashicons dashicons-menu"></span><a href="<?php echo esc_url( admin_url('customize.php?autofocus[panel]=nav_menus') ); ?>" target="_blank"><?php esc_html_e('Menus','vw-kids'); ?></a>
+							</div>
+							
+							<div class="row-box2">
+								<span class="dashicons dashicons-text-page"></span><a href="<?php echo esc_url( admin_url('customize.php?autofocus[section]=vw_kids_footer') ); ?>" target="_blank"><?php esc_html_e('Footer Text','vw-kids'); ?></a>
+							</div>
+						</div>
+
+						<div class="row-box">
+							<div class="row-box1">
+								<span class="dashicons dashicons-format-gallery"></span><a href="<?php echo esc_url( admin_url('customize.php?autofocus[section]=vw_kids_post_settings') ); ?>" target="_blank"><?php esc_html_e('Post settings','vw-kids'); ?></a>
+							</div>
+							 <div class="row-box2">
+								<span class="dashicons dashicons-align-center"></span><a href="<?php echo esc_url( admin_url('customize.php?autofocus[section]=vw_kids_woocommerce_section') ); ?>" target="_blank"><?php esc_html_e('WooCommerce Layout','vw-kids'); ?></a>
+							</div> 
+						</div>
+						
+						<div class="row-box">
+							<div class="row-box1">
+								<span class="dashicons dashicons-admin-generic"></span><a href="<?php echo esc_url( admin_url('customize.php?autofocus[section]=vw_kids_left_right') ); ?>" target="_blank"><?php esc_html_e('General Settings','vw-kids'); ?></a>
+							</div>
+							 <div class="row-box2">
+								<span class="dashicons dashicons-screenoptions"></span><a href="<?php echo esc_url( admin_url('customize.php?autofocus[panel]=widgets') ); ?>" target="_blank"><?php esc_html_e('Footer Widget','vw-kids'); ?></a>
+							</div> 
+						</div>
+					</div>
+				</div>
+			<?php } ?>
+		</div>
+
+		<div id="product_addons_editor" class="tabcontent product_woo_tab">
+			<?php if(!is_plugin_active('ibtana-ecommerce-product-addons/plugin.php')){ 
+				$plugin_ins = VW_Kids_Plugin_Activation_Woo_Products::get_instance();
+				$vw_kids_actions = $plugin_ins->recommended_actions;
+				?>
+				<div class="vw-kids-recommended-plugins">
+			    	<div class="vw-kids-action-list">
+                	<div class="vw-kids-action" id="<?php echo esc_attr($vw_kids_actions['id']);?>">
+                     <div class="action-inner plugin-activation-redirect">
+                        <h3 class="action-title"><?php echo esc_html($vw_kids_actions['title']); ?></h3>
+                        <div class="action-desc"><?php echo esc_html($vw_kids_actions['desc']); ?>
+                        </div>
+                        <?php echo wp_kses_post($vw_kids_actions['link']); ?>
+                     </div>
+                	</div>
+			    	</div>
+				</div>
+			<?php }else{ ?>
+				<h3><?php esc_html_e( 'Woocommerce Products Blocks', 'vw-kids' ); ?></h3>
+				<hr class="h3hr">
+           	<div class="vw-kids-pattern-page">
+	    			<a href="<?php echo esc_url( admin_url( 'admin.php?page=ibtana-visual-editor-templates&woo=true' ) ); ?>" class="vw-pattern-page-btn ibtana-dashboard-page-btn button-primary button"><?php esc_html_e('Woocommerce Templates','vw-kids'); ?></a>
+	    		</div>
+			<?php } ?>
 		</div>	
 
 		<div id="theme_pro" class="tabcontent">
@@ -330,7 +357,7 @@ function vw_kids_mostrar_guide() {
 		    	<p><?php esc_html_e('Designing a kids website is not a kids play. It should be bright, intuitive, fresh, colourful and interesting to see, perfectly reflecting the enthusiasm of the audience it is made for. All these and many more things are offered by our premium quality kids WordPress theme that makes it the best match for the diverse niches in kids business. It can be used as a kids health blog, nanny and babysitter portfolio and as a website for kindergartens, day care centres, play schools, art and craft schools, sports centres, baby clothing, skin care and food products selling eCommerce store, toy shop, play station and all the kids website. This kids WordPress theme has a variety of layouts to alter the placement of website components according to your wish. It has simple backend interface which is very easy to understand so you can set the website even if you do not have any coding knowledge.','vw-kids'); ?></p>
 		    	<div class="pro-links">
 			    	<a href="<?php echo esc_url( VW_KIDS_LIVE_DEMO ); ?>" target="_blank"><?php esc_html_e('Live Demo', 'vw-kids'); ?></a>
-					<a href="<?php echo esc_url( VW_KIDS_BUY_NOW ); ?>"><?php esc_html_e('Buy Pro', 'vw-kids'); ?></a>
+					<a href="<?php echo esc_url( VW_KIDS_BUY_NOW ); ?>" target="_blank"><?php esc_html_e('Buy Pro', 'vw-kids'); ?></a>
 					<a href="<?php echo esc_url( VW_KIDS_PRO_DOC ); ?>" target="_blank"><?php esc_html_e('Pro Documentation', 'vw-kids'); ?></a>
 				</div>
 		    </div>

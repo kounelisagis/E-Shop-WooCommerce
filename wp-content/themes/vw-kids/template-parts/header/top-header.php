@@ -23,12 +23,12 @@
             <div class="row m-0">
               <div class="call col-lg-5 col-md-5">
                 <?php if( get_theme_mod('vw_kids_call') != '' ){ ?>
-                  <i class="<?php echo esc_attr(get_theme_mod('vw_kids_phone_number_icon','fas fa-phone')); ?>"></i><span><a href="tel:<?php echo esc_url( get_theme_mod('vw_kids_call','') ); ?>"><?php echo esc_html(get_theme_mod('vw_kids_call',''));?></a></span>
+                  <i class="<?php echo esc_attr(get_theme_mod('vw_kids_phone_number_icon','fas fa-phone')); ?>"></i><span><a href="tel:<?php echo esc_attr( get_theme_mod('vw_kids_call','') ); ?>"><?php echo esc_html(get_theme_mod('vw_kids_call',''));?></a></span>
                 <?php }?>            
               </div>
               <div class="email col-lg-7 col-md-7">            
                 <?php if( get_theme_mod( 'vw_kids_email') != ''){ ?>
-                  <i class="<?php echo esc_attr(get_theme_mod('vw_kids_email_icon','far fa-envelope')); ?>"></i><span><a href="mailto:<?php echo esc_html(get_theme_mod('vw_kids_email',''));?>"><?php echo esc_html(get_theme_mod('vw_kids_email',''));?></a></span>
+                  <i class="<?php echo esc_attr(get_theme_mod('vw_kids_email_icon','far fa-envelope')); ?>"></i><span><a href="mailto:<?php echo esc_attr(get_theme_mod('vw_kids_email',''));?>"><?php echo esc_html(get_theme_mod('vw_kids_email',''));?></a></span>
                 <?php }?>
               </div>
             </div>
