@@ -102,8 +102,11 @@
 	margin-left: 0px;
 	margin-bottom: 0px;
 }
-.wpfValue{
+.wpfValue {
 	padding-left: 5px !important;
+}
+.wpfFilterWrapper[data-filter-type="wpfPriceRange"] .wpfValue {
+	padding-left: 10px !important;
 }
 .wpfFilterTaxImgWrapper {
 	display: inline-block;
@@ -279,9 +282,8 @@
 	width: auto !important;
 }
 .wpfFilterWrapper ul:not(.wpfButtonsFilter) li {
-	padding-left: 0px !important;
-	display: list-item;
-	margin: 2px 0px 2px 8px !important;
+    padding-left: 0px !important;
+    margin-left: 0px !important;
 }
 .rtl .wpfFilterWrapper ul:not(.wpfButtonsFilter) li {
   padding-right: 0px !important;
@@ -353,9 +355,6 @@
 }
 .wpfFilterContent ul input[type="checkbox"] {
     appearance: auto !important;
-}
-.wpfFilterContent ul {
-    display: block !important;
 }
 .wpfBlockAnimated {
 	overflow: hidden;

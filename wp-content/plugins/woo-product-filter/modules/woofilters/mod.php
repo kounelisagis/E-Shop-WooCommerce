@@ -39,7 +39,8 @@ class WoofiltersWpf extends ModuleWpf {
 		add_action('woocommerce_shortcode_products_query', array($this, 'loadShortcodeProductsFilter'), 999, 3);
 		//add_filter('woocommerce_product_query_tax_query', array($this, 'customProductQueryTaxQuery'), 10, 1);
 
-		add_action('woocommerce_shortcode_before_products_loop', array($this, 'addWoocommerceShortcodeQuerySettings'), 10, 1);
+		add_action('woocommerce_shortcode_before_products_loop', array($this, 'addWoocommerceShortcodeQuerySettings'));
+		add_action('woocommerce_shortcode_before_sale_products_loop', array($this, 'addWoocommerceShortcodeQuerySettings'));
 
 		trait_exists('\Essential_Addons_Elementor\Template\Content\Product_Grid') && add_action('pre_get_posts', array($this, 'loadProductsFilterForProductGrid'), 999);
 
@@ -56,6 +57,7 @@ class WoofiltersWpf extends ModuleWpf {
 		add_filter('woocommerce_shortcode_products_query_results', array($this, 'queryResults'));
 		add_action('elementor/widget/before_render_content', array($this, 'getElementorClass'));
 		add_action('woocommerce_is_filtered', array($this, 'isFiltered'));
+		add_action('shortcode_atts_products', array($this, 'shortcodeAttsProducts'), 999, 3);
 	}
 
 	public function isFiltered( $filtered ) {
@@ -674,7 +676,7 @@ class WoofiltersWpf extends ModuleWpf {
 	}
 
 	public function loadShortcodeProductsFilter( $args, $attributes, $type ) {
-		$hash      = md5( serialize( $args ) );
+		$hash      = md5( serialize( $args ) . serialize( $attributes ) );
 		$filterKey = ( empty( $attributes['class'] ) ) ? ( ( empty( self::$currentElementorClass ) ) ? '-' : self::$currentElementorClass ) : $attributes['class'];
 
 		if ( ! key_exists( $hash, self::$loadShortcode ) || 'products' !== $type ) {
@@ -686,6 +688,9 @@ class WoofiltersWpf extends ModuleWpf {
 			// set preselects
 			$mode       = 'preselect';
 			$preselects = $this->getPreselectedValue();
+			if ( ! isset( $preselects['pr_onsale'] ) && isset( $attributes['on_sale'] ) && 'true' === $attributes['on_sale'] ) {
+				$preselects['pr_onsale'] = 1;
+			}
 			$fields     = $this->addCustomFieldsQuery( $preselects, $mode );
 			$metaQuery  = $this->addCustomMetaQuery( $metaQuery, $preselects, $mode );
 			$taxQuery   = $this->addCustomTaxQuery( $taxQuery, $preselects, $mode );
@@ -805,7 +810,7 @@ class WoofiltersWpf extends ModuleWpf {
 									$term = $isSlug ? get_term_by( 'slug', $termId, $taxonomy ) : get_term( $termId );
 									if ( $term ) {
 										$countItem ++;
-										$termTtaxonomyId[] = $term->term_id;
+										$termTtaxonomyId[] = $term->term_taxonomy_id;
 										$metaValue[]       = "'{$term->slug}'";
 										$taxonomies[]      = $taxonomy;
 										unset( $tax_query[ $key ]['terms'][ $keyTerm ] );
@@ -2364,7 +2369,7 @@ class WoofiltersWpf extends ModuleWpf {
 	public static function getProductsShortcode( $content ) {
 		$shortcode_tags = array(
 			'products' => 'WC_Shortcodes::products',
-			//'product_categories' => 'WC_Shortcodes::product_categories',
+			'sale_products' =>'WC_Shortcodes::sale_products',
 		);
 
 		if ( false === strpos( $content, '[' ) ) {
@@ -2385,7 +2390,10 @@ class WoofiltersWpf extends ModuleWpf {
 		$pattern = get_shortcode_regex( $tagnames );
 		preg_match_all( "/$pattern/", $content, $matches );
 		if ( count( $matches ) > 3 ) {
-			foreach ( (array) $matches[3] as $m ) {
+			foreach ( (array) $matches[3] as $key => $m ) {
+				if ( 'sale_products' === $matches[2][ $key ] ) {
+					$m .= ' on_sale="true"';
+				}
 				new WC_Shortcode_Products( shortcode_parse_atts( $m ), 'products' );
 			}
 		}
@@ -2409,5 +2417,13 @@ class WoofiltersWpf extends ModuleWpf {
 		if ( isset( $rawData['settings']['_css_classes'] ) && '' !== $rawData['settings']['_css_classes'] ) {
 			self::$currentElementorClass = $rawData['settings']['_css_classes'];
 		}
+	}
+
+	public function shortcodeAttsProducts( $out, $pairs, $atts ) {
+		if ( isset( $atts['on_sale'] ) && ! isset( $out['on_sale'] ) ) {
+			$out['on_sale'] = $atts['on_sale'];
+		}
+
+		return $out;
 	}
 }

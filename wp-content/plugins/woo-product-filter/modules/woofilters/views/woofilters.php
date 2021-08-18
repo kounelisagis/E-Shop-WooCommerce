@@ -1628,7 +1628,7 @@ class WoofiltersViewWpf extends ViewWpf {
 				}
 				$htmlOpt = '<select>' . $htmlOpt . '</select>';
 				$logic   = 'or';
-			} else {
+			} elseif ('mul_dropdown' === $type) {
 				$htmlOpt = $this->getMultiSelectHtml( $htmlOpt, $settings );
 			}
 		} else {
@@ -1765,7 +1765,9 @@ class WoofiltersViewWpf extends ViewWpf {
 				$htmlOpt = '<option value="" data-slug="">' . esc_html__('Select all', 'woo-product-filter') . '</option>' . $htmlOpt;
 			}
 			$wrapperEnd = '</select>';
-		} else {
+		} elseif ('mul_dropdown' === $type) {
+			$wrapperStart = '';
+			$wrapperEnd = '';
 			$htmlOpt = $this->getMultiSelectHtml( $htmlOpt, $settings );
 		}
 
@@ -1789,7 +1791,9 @@ class WoofiltersViewWpf extends ViewWpf {
 				'</div>';
 		}
 		$html .= '<div class="wpfCheckboxHier">';
+		$html .= $wrapperStart;
 		$html .= $htmlOpt;
+		$html .= $wrapperEnd;
 		$html .= '</div>';//end wpfCheckboxHier
 		$html .= '</div>';//end wpfFilterContent
 		$html .= '</div>';//end wpfFilterWrapper

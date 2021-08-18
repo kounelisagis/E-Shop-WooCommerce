@@ -385,14 +385,16 @@
 			_thisObj.eventChangeFilterPro(_this, settings);
 		}
 
-		var redirectOnlyClick = Number(settings.settings.redirect_only_click);
-		var autoUpdateFilter  = Number(settings.settings.auto_update_filter);
-		if (mainWrapper.find('.wpfFilterButton').length === 0 || redirectOnlyClick || autoUpdateFilter) {
-			if (autoUpdateFilter) {
+		var redirectOnlyClick = Number(settings.settings.redirect_only_click),
+		    autoUpdateFilter  = Number(settings.settings.auto_update_filter),
+			isButton = ( mainWrapper.find('.wpfFilterButton').length > 0 );
+		if (isButton) {
+			if (autoUpdateFilter || !redirectOnlyClick) {
 				_thisObj.filterClick = false;
-			} else {
-				_thisObj.filterClick = !redirectOnlyClick;
+				_thisObj.filtering(mainWrapper);
 			}
+		} else {
+			_thisObj.filterClick = true;
 			_thisObj.filtering(mainWrapper);
 		}
 	});
@@ -629,7 +631,7 @@
 			}
 		});
 
-		jQuery('body').off('click', '.wpfFilterTitle').on('click', '.wpfFilterTitle', function (e) {
+		jQuery('body').off('click', '.wpfFilterWrapper .wpfFilterTitle').on('click', '.wpfFilterWrapper .wpfFilterTitle', function (e) {
 			e.preventDefault();
 			var _this = jQuery(this),
 				wrapper = _this.closest('.wpfMainWrapper'),
@@ -1118,13 +1120,15 @@
 					$woocommerceSettings['woocommercefSortBy'] = $wooCommerceSort.eq(0).val();
 				}
 			}
-			if (history.pushState && app.wpfNewUrl != window.wpfOldUrl) {
+			var redirect = (typeof $filterWrapper.data('redirect-page-url') !== 'undefined');
+
+			if (history.pushState && app.wpfNewUrl != window.wpfOldUrl && !redirect) {
 				history.pushState({state: 1, rand: Math.random(), wpf: true}, '', app.wpfNewUrl);
 				app.wpfOldUrl = app.wpfNewUrl;
 			}
 
-			if (typeof $filterWrapper.data('redirect-page-url') !== 'undefined' && _thisObj.filterClick) {
-				let queryString = window.location.href.split('?')[1] || '';
+			if ( redirect && _thisObj.filterClick) {
+				let queryString = app.wpfNewUrl.split('?')[1] || '';
 				if (queryString !== '') {
 					jQuery(location).attr('href', $filterWrapper.data('redirect-page-url') + '?' + queryString + '&redirect');
 				}
@@ -2779,7 +2783,7 @@ function getParameterByName(name, searchUrl) {
 function getCurrentUrlPartsWpf() {
 	var parts = window.wpfNewUrl.split('?'),
 		s = (parts[1] || '');
-	return {href: window.wpfNewUrl, path: parts[0], search: (s.length ? '?' + s : '')};
+	return {href: window.wpfNewUrl, path: parts[0].replace(/#$/, ''), search: (s.length ? '?' + s : '')};
 }
 
 //Add or modify querystring

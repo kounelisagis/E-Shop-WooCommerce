@@ -143,6 +143,8 @@
 	font-size: 16px;
 	line-height: 16px;
 	min-height: 20px;
+}
+.wpfFilterWrapper .wpfFilterTitle {
 	cursor: pointer;
 }
 .wpfFilterWrapper .ms-options input[type=checkbox]:checked:before, input[type=radio]:checked:before {
