@@ -4,7 +4,7 @@ Tags: gdpr, ccpa, cookies, consent, compliance
 Requires at least: 4.3
 Requires PHP: 5.3
 Tested up to: 5.8
-Stable tag: 2.1.1
+Stable tag: 2.1.3
 License: MIT License
 License URI: http://opensource.org/licenses/MIT
 
@@ -57,6 +57,13 @@ No questions yet.
 1. screenshot-1.png
 
 == Changelog ==
+
+= 2.1.3 =
+* Fix: HTML attributes removed from text strings
+* Tweak: Improved sanitization of options
+
+= 2.1.2 =
+* Tweak: Improved escaping of button labels
 
 = 2.1.1 =
 * Fix: Security bug related to compliance caching
@@ -321,5 +328,5 @@ Initial release
 
 == Upgrade Notice ==
 
-= 2.1.1 =
-* Fix: Security bug related to compliance caching
+= 2.1.3 =
+* Fix: HTML attributes removed from text strings

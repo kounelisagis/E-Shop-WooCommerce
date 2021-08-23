@@ -144,7 +144,7 @@ class Cookie_Notice_Welcome {
 		$screens = array_merge( $sidebars, $steps );
 
 		$is_ajax = defined( 'DOING_AJAX' ) && DOING_AJAX;
-		$screen = ! empty( $screen ) && in_array( $screen, $screens ) ? $screen : ( isset( $_REQUEST['screen'] ) && in_array( $_REQUEST['screen'], $screens ) ? esc_attr( $_REQUEST['screen'] ) : '' );
+		$screen = ! empty( $screen ) && in_array( $screen, $screens ) ? $screen : ( isset( $_REQUEST['screen'] ) && in_array( $_REQUEST['screen'], $screens ) ? $_REQUEST['screen'] : '' );
 
 		if ( empty( $screen ) )
 			wp_die( _( 'You do not have permission to access this page.', 'cookie-notice' ) );
@@ -158,7 +158,7 @@ class Cookie_Notice_Welcome {
 		// step screens
 		if ( in_array( $screen, $steps ) ) {
 			$html = '
-			<div class="wrap full-width-layout cn-welcome-wrap cn-welcome-step-' . $screen . ' has-loader">';
+			<div class="wrap full-width-layout cn-welcome-wrap cn-welcome-step-' . esc_attr( $screen ) . ' has-loader">';
 
 			if ( $screen == 1 ) {
 				$html .= $this->welcome_screen( 'about', false );
@@ -247,9 +247,7 @@ class Cookie_Notice_Welcome {
 			} elseif ( $screen == 3 ) {
 				// get options
 				$app_config = get_transient( 'cookie_notice_app_config' );
-				
-				// echo '<pre>'; print_r( $app_config ); echo '</pre>'; 
-				
+
 				$html .= $this->welcome_screen( 'register', false );
 				
 				$html .= '
@@ -404,9 +402,8 @@ class Cookie_Notice_Welcome {
 			$html = '';
 
 			if ( $screen === 'about' ) {
-				
 				$theme = wp_get_theme();
-				
+
 				$html .= '
 				<div class="cn-sidebar cn-sidebar-left has-loader">
 					<div class="cn-inner">
@@ -581,7 +578,7 @@ class Cookie_Notice_Welcome {
 				$locale_code = explode( '_', $locale );
 
 				$html .= '
-											<input type="hidden" name="language" value="' . $locale_code[0] . '" />';
+											<input type="hidden" name="language" value="' . esc_attr( $locale_code[0] ) . '" />';
 
 				$html .= wp_nonce_field( 'cn_api_register', 'cn_nonce', true, false );
 
@@ -683,7 +680,7 @@ class Cookie_Notice_Welcome {
 				$locale_code = explode( '_', $locale );
 
 				$html .= '
-											<input type="hidden" name="language" value="' . $locale_code[0] . '" />';
+											<input type="hidden" name="language" value="' . esc_attr( $locale_code[0] ) . '" />';
 
 				$html .= wp_nonce_field( 'cn_api_login', 'cn_nonce', true, false );
 
