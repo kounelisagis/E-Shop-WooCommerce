@@ -74,6 +74,46 @@ if (!class_exists('rtTPGHelper')):
             return $terms;
         }
 
+        function rt_get_selected_term_by_taxonomy($taxonomy = null, $include = [], $count = false, $parent = false) {
+            $terms = array();
+            if ($taxonomy) {
+                $temp_terms = get_terms(array('taxonomy' => $taxonomy, 'hide_empty' => 0));
+                if (is_array($temp_terms) && !empty($temp_terms) && empty($temp_terms['errors'])) {
+                    foreach ($temp_terms as $term) {
+                        $order = get_term_meta($term->term_id, '_rt_order', true);
+                        if ($order === "") {
+                            update_term_meta($term->term_id, '_rt_order', 0);
+                        }
+                    }
+                    global $wp_version;
+                    $args = array(
+                        'taxonomy'   => $taxonomy,
+                        'orderby'    => 'meta_value_num',
+                        'meta_key'   => '_rt_order',
+                        'include'    => $include,
+                        'hide_empty' => false,
+                    );
+                    if ($parent >= 0 && $parent !== false) {
+                        $args['parent'] = absint($parent);
+                    }
+                    $args['orderby'] = 'meta_value_num';
+                    $args['meta_key'] = '_rt_order';
+
+                    $termObjs = get_terms($args);
+
+                    foreach ($termObjs as $term) {
+                        if ($count) {
+                            $terms[$term->term_id] = array('name' => $term->name, 'count' => $term->count);
+                        } else {
+                            $terms[$term->term_id] = $term->name;
+                        }
+                    }
+                }
+            }
+
+            return $terms;
+        }
+
         function getCurrentUserRoles() {
             global $current_user;
 
@@ -459,9 +499,9 @@ if (!class_exists('rtTPGHelper')):
 
             if ($mediaSource == 'feature_image') {
                 if ($aID = get_post_thumbnail_id($post_id)) {
-                    $image = wp_get_attachment_image($aID, $fImgSize, '', ['class' => $img_class]);
+                    $image = wp_get_attachment_image($aID, $fImgSize, '', ['class' => $img_class, 'loading' => false]);
                     $imgSrc = wp_get_attachment_image_src($aID, $fImgSize);
-                    $imgSrc = $imgSrc[0];
+                    $imgSrc = !empty($imgSrc) ? $imgSrc[0] : $imgSrc;
                 }
             } else if ($mediaSource == 'first_image') {
                 if ($img = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', get_the_content($post_id),
@@ -1085,7 +1125,18 @@ if (!class_exists('rtTPGHelper')):
             // Title decoration
 
             if ($title_color || $title_size || $title_weight || $title_alignment) {
-                $css .= "#{$layoutID} .{$layout} .rt-holder h3.entry-title,#{$layoutID} .{$layout} .rt-holder h3.entry-title a,#{$layoutID} .rt-holder .rt-woo-info h3 a,#{$layoutID} .rt-holder .rt-woo-info h3{";
+                $css .= "#{$layoutID} .{$layout} .rt-holder h2.entry-title,
+                #{$layoutID} .{$layout} .rt-holder h3.entry-title,
+                #{$layoutID} .{$layout} .rt-holder h4.entry-title,
+                #{$layoutID} .{$layout} .rt-holder h2.entry-title a,
+                #{$layoutID} .{$layout} .rt-holder h3.entry-title a,
+                #{$layoutID} .{$layout} .rt-holder h4.entry-title a,
+                #{$layoutID} .rt-holder .rt-woo-info h2 a,
+                #{$layoutID} .rt-holder .rt-woo-info h3 a,
+                #{$layoutID} .rt-holder .rt-woo-info h4 a,
+                #{$layoutID} .rt-holder .rt-woo-info h2,
+                #{$layoutID} .rt-holder .rt-woo-info h3,
+                #{$layoutID} .rt-holder .rt-woo-info h4{";
                 if ($title_color) {
                     $css .= "color:" . $title_color . ";";
                 }
@@ -1103,10 +1154,18 @@ if (!class_exists('rtTPGHelper')):
 
             // Title hover color
             if ($title_hover_color) {
-                $css .= "#{$layoutID} .{$layout} .rt-holder h3.entry-title:hover,
+                $css .= "#{$layoutID} .{$layout} .rt-holder h2.entry-title:hover,
+                        #{$layoutID} .{$layout} .rt-holder h3.entry-title:hover,
+                        #{$layoutID} .{$layout} .rt-holder h4.entry-title:hover,
+						#{$layoutID} .{$layout} .rt-holder h2.entry-title a:hover,
 						#{$layoutID} .{$layout} .rt-holder h3.entry-title a:hover,
+						#{$layoutID} .{$layout} .rt-holder h4.entry-title a:hover,
+						#{$layoutID} .rt-holder .rt-woo-info h2 a:hover,
 						#{$layoutID} .rt-holder .rt-woo-info h3 a:hover,
-						#{$layoutID} .rt-holder .rt-woo-info h3:hover{";
+						#{$layoutID} .rt-holder .rt-woo-info h4 a:hover,
+						#{$layoutID} .rt-holder .rt-woo-info h2:hover,
+						#{$layoutID} .rt-holder .rt-woo-info h3:hover,
+						#{$layoutID} .rt-holder .rt-woo-info h4:hover{";
                 $css .= "color:" . $title_hover_color . " !important;";
                 $css .= "}";
             }
@@ -1137,7 +1196,7 @@ if (!class_exists('rtTPGHelper')):
                     $css .= "}";
                 }
 
-                $css .= "#{$layoutID} .{$layout} .rt-holder .post-meta-user,#{$layoutID} .{$layout} .rt-holder .post-meta-user .meta-data, #{$layoutID} .{$layout} .rt-holder .post-meta-user a{";
+                $css .= "#{$layoutID} .{$layout} .rt-holder .post-meta-user,#{$layoutID} .{$layout} .rt-holder .post-meta-user .meta-data, #{$layoutID} .{$layout} .rt-holder .post-meta-user a, #{$layoutID} .{$layout} .rt-holder .rt-detail .post-meta .rt-tpg-social-share {";
                 if ($meta_data_color) {
                     $css .= "color:" . $meta_data_color . ";";
                 }

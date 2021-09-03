@@ -231,25 +231,25 @@ msgstr "Θα πρέπει να μετατρέψετε το αρχείο %1$s σ�
 msgid "Rewrite rules:"
 msgstr "Rewrite rules:"
 
-#: wp-admin/nav-menus.php:1022
+#: wp-admin/nav-menus.php:1038
 msgid "List of menu items selected for deletion:"
 msgstr "Λίστα των επιλεγμένων στοιχείων μενού προς διαγραφή:"
 
-#: wp-admin/nav-menus.php:1020
+#: wp-admin/nav-menus.php:1036
 msgid "Remove Selected Items"
 msgstr "Αφαίρεση επιλεγμένων στοιχείων."
 
-#: wp-admin/nav-menus.php:987 wp-admin/nav-menus.php:1018
+#: wp-admin/nav-menus.php:999 wp-admin/nav-menus.php:1034
 msgid "Bulk Select"
 msgstr "Μαζική επιλογή"
 
 #. translators: %s: Item name.
-#: wp-admin/nav-menus.php:491
+#: wp-admin/nav-menus.php:501
 msgid "Deleted menu item: %s."
 msgstr "Διεγράφηκε το στοιχείο μενού: %s."
 
 #. translators: %s: Item name.
-#: wp-admin/nav-menus.php:489
+#: wp-admin/nav-menus.php:499
 msgid "item %s"
 msgstr "στοιχείο %s"
 
@@ -1406,7 +1406,7 @@ msgstr "Οι αυτόματες ενημερώσεις μπορούν να εν�
 msgid "<strong>Important:</strong> Before updating, please <a href=\"%1$s\">back up your database and files</a>. For help with updates, visit the <a href=\"%2$s\">Updating WordPress</a> documentation page."
 msgstr "<strong>Σημαντικό:</strong> Πριν αναβαθμίσετε, <a href=\"%1$s\">αποθηκεύστε τη βάση δεδομένων και τα αρχεία σας</a>. Για βοήθεια σχετικά με τις ενημερώσεις, επισκεφτείτε τη σελίδα τεκμηρίωσης <a href=\"%2$s\">Ενημέρωση WordPress</a>."
 
-#: wp-admin/customize.php:203 wp-admin/theme-install.php:389
+#: wp-admin/customize.php:207 wp-admin/theme-install.php:389
 #: wp-admin/theme-install.php:436 wp-admin/themes.php:554
 #: wp-admin/themes.php:912 wp-admin/themes.php:1128
 msgctxt "theme"
@@ -2245,7 +2245,7 @@ msgstr "<a href=\"https://wordpress.org/support/article/settings-permalinks-scre
 msgid "<a href=\"https://wordpress.org/support/article/dashboard-updates-screen/\">Documentation on Updating WordPress</a>"
 msgstr "<a href=\"https://wordpress.org/support/article/dashboard-updates-screen/\">Τεκμηρίωση για την Αναβάθμιση του WordPress</a>"
 
-#: wp-admin/nav-menus.php:653
+#: wp-admin/nav-menus.php:663
 msgid "<a href=\"https://wordpress.org/support/article/appearance-menus-screen/\">Documentation on Menus</a>"
 msgstr "<a href=\"https://wordpress.org/support/article/appearance-menus-screen/\">Τεκμηρίωση σχετικά με τα Μενού</a>"
 
@@ -2994,7 +2994,7 @@ msgid "Great job!"
 msgstr "Καταπληκτική δουλειά!"
 
 #: wp-admin/about.php:33 wp-admin/credits.php:34 wp-admin/freedoms.php:37
-#: wp-admin/includes/ms.php:1122 wp-admin/nav-menus.php:691
+#: wp-admin/includes/ms.php:1122 wp-admin/nav-menus.php:701
 #: wp-admin/options-privacy.php:143 wp-admin/privacy-policy-guide.php:41
 #: wp-admin/privacy.php:31 wp-admin/site-health.php:115
 msgid "Secondary menu"
@@ -4010,29 +4010,29 @@ msgstr "Δεν μπορείτε να αναβαθμίσετε το <a href=\"%1$
 msgid "You cannot update because <a href=\"%1$s\">WordPress %2$s</a> requires PHP version %3$s or higher. You are running version %4$s."
 msgstr "Δεν μπορείτε να αναβαθμίσετε το <a href=\"%1$s\">WordPress %2$s</a> επειδή απαιτείται η PHP έκδοση %3$s ή νεότερη. Εσείς χρησιμοποιείτε την έκδοση %4$s."
 
-#: wp-admin/nav-menus.php:927
+#: wp-admin/nav-menus.php:937
 msgid "Add menu items"
 msgstr "Προσθέστε αντικείμενα στο μενού"
 
 #. translators: %s: URL to create a new menu.
-#: wp-admin/nav-menus.php:893
+#: wp-admin/nav-menus.php:903
 msgid "or <a href=\"%s\">create a new menu</a>. Don&#8217;t forget to save your changes!"
 msgstr "ή <a href=\"%s\">δημιουργήστε ένα νέο μενού</a>. Μη ξεχνάτε να κάνετε αποθήκευση τις αλλαγές!"
 
-#: wp-admin/nav-menus.php:840 wp-admin/nav-menus.php:905
+#: wp-admin/nav-menus.php:850 wp-admin/nav-menus.php:915
 msgid "Click the Save Menu button to save your changes."
 msgstr "Πατήστε το κουμπί \"Αποθήκευση Μενού\" για να αποθηκεύσετε τις αλλαγές σας."
 
 #. translators: %s: URL to create a new menu.
-#: wp-admin/nav-menus.php:828
+#: wp-admin/nav-menus.php:838
 msgid "Edit your menu below, or <a href=\"%s\">create a new menu</a>. Don&#8217;t forget to save your changes!"
 msgstr "Τροποποιήστε το παρακάτω μενού, ή <a href=\"%s\">δημιουργήστε ένα νέο μενου</a>. Μην ξεχάσετε να αποθηκεύσετε τις αλλαγές!"
 
-#: wp-admin/nav-menus.php:821
+#: wp-admin/nav-menus.php:831
 msgid "Fill in the Menu Name and click the Create Menu button to create your first menu."
 msgstr "Συμπληρώστε το Όνομα Μενού και πατήστε το κουμπί Δημιουργίας Μενού για να δημιουργήσετε το πρώτο σας μενου."
 
-#: wp-admin/nav-menus.php:820
+#: wp-admin/nav-menus.php:830
 msgid "Create your first menu below."
 msgstr "Δημιουργήστε το πρώτο σας μενού παρακάτω."
 
@@ -5612,11 +5612,11 @@ msgstr "Λυπούμαστε, δεν σας επιτρέπεται να διαγ
 msgid "Sorry, you are not allowed to create users."
 msgstr "Λυπούμαστε, δεν σας επιτρέπεται να δημιουργείτε χρήστες."
 
-#: wp-admin/customize.php:241
+#: wp-admin/customize.php:245
 msgid "The Customizer allows you to preview changes to your site before publishing them. You can navigate to different pages on your site within the preview. Edit shortcuts are shown for some editable elements."
 msgstr "Ο προσαρμογέας σας επιτρέπει προεπισκόπιση των αλλαγών στον ιστότοπο σας πριν τις δημοσιεύσετε. Μπορείτε να πλοηγηθείτε σε διαφορετικές σελίδες στον ιστότοπο μέσα στην προεπισκόπιση. Οι συντομεύσεις των αλλαγών εμφανίζονται για μερικά τροποποιήσιμα στοιχεία."
 
-#: wp-admin/customize.php:255
+#: wp-admin/customize.php:259
 msgctxt "short (~12 characters) label for hide controls button"
 msgid "Hide Controls"
 msgstr "Απόκρυψη χειριστηρίων"
@@ -5625,7 +5625,7 @@ msgstr "Απόκρυψη χειριστηρίων"
 msgid "Expand Sidebar"
 msgstr "Επέκταση πλευρικής στήλης"
 
-#: wp-admin/nav-menus.php:1052
+#: wp-admin/nav-menus.php:1070
 msgid "Display location"
 msgstr "Εμφάνιση τοποθεσίας"
 
@@ -5718,7 +5718,7 @@ msgstr "Επανάληψη"
 #: wp-admin/includes/class-custom-background.php:100
 #: wp-admin/includes/class-custom-image-header.php:137 wp-admin/index.php:112
 #: wp-admin/link-manager.php:79 wp-admin/media-new.php:61 wp-admin/media.php:97
-#: wp-admin/my-sites.php:52 wp-admin/nav-menus.php:654
+#: wp-admin/my-sites.php:52 wp-admin/nav-menus.php:664
 #: wp-admin/options-discussion.php:32 wp-admin/options-general.php:49
 #: wp-admin/options-media.php:41 wp-admin/options-permalink.php:62
 #: wp-admin/options-reading.php:53 wp-admin/options-writing.php:53
@@ -5893,7 +5893,7 @@ msgstr "Λυπούμαστε , δεν σας επιτρέπεται να τρο�
 msgid "Sorry, you are not allowed to manage options for this site."
 msgstr "Λυπούμαστε, δεν σας επιτρέπεται η διαχείριση επιλογών για αυτό τον ιστότοπο."
 
-#: wp-admin/nav-menus.php:676 wp-admin/widgets-form.php:393
+#: wp-admin/nav-menus.php:686 wp-admin/widgets-form.php:393
 msgid "Manage with Live Preview"
 msgstr "Διαχείριση με τη Ζωντανή Προεπισκόπηση"
 
@@ -6112,7 +6112,7 @@ msgstr "Λυπούμαστε, δεν σας επιτρέπεται η εξαγω
 msgid "You can filter the list of posts by post status using the text links above the posts list to only show posts with that status. The default view is to show all posts."
 msgstr "Μπορείτε να φιλτράρετε τη λίστα των άρθρων κατά κατάσταση δημοσίευσης χρησιμοποιώντας τους συνδέσμους κειμένου πάνω από τη λίστα άρθρων για να προβάλετε μόνο τα άρθρα με αυτή την κατάσταση. Η προκαθορισμένη προβολή είναι να εμφανίζονται όλα τα άρθρα."
 
-#: wp-admin/customize.php:214
+#: wp-admin/customize.php:218
 msgid "Close the Customizer and go back to the previous page"
 msgstr "Κλείσιμο του Προσαρμογέα και επιστροφή στην προηγούμενη σελίδα"
 
@@ -6562,7 +6562,7 @@ msgid "Send User Notification"
 msgstr "Στείλε ειδοποίηση χρήστη"
 
 #. translators: %s: Menu name.
-#: wp-admin/nav-menus.php:1072
+#: wp-admin/nav-menus.php:1090
 msgctxt "menu location"
 msgid "(Currently set to: %s)"
 msgstr "(Έχει οριστεί σε:%s)"
@@ -7247,7 +7247,7 @@ msgid "Show more details"
 msgstr "Δείτε περισσότερες λεπτομέρειες"
 
 #. translators: %s: Number of menus.
-#: wp-admin/nav-menus.php:720
+#: wp-admin/nav-menus.php:730
 msgid "Your theme supports %s menu. Select which menu appears in each location."
 msgid_plural "Your theme supports %s menus. Select which menu appears in each location."
 msgstr[0] "Το θέμα εμφάνισης σας υποστηρίζει %s μενού. Επιλέξτε ποιο μενού θέλετε να χρησιμοποιηθεί."
@@ -7449,7 +7449,7 @@ msgctxt "timezone date format"
 msgid "Y-m-d H:i:s"
 msgstr "Y-m-d H:i:s"
 
-#: wp-admin/nav-menus.php:625
+#: wp-admin/nav-menus.php:635
 msgid "To add a custom link, <strong>expand the Custom Links section, enter a URL and link text, and click Add to Menu</strong>"
 msgstr "Για να προσθέσετε ένα προσαρμοσμένο σύνδεσμο, <strong>επεκτείνετε την περιοχή Προσαρμοσμένων Συνδέσμων, δώστε μια διεύθυνση και κείμενο συνδέσμου, και πατήστε Προσθήκη στο Μενού</strong>"
 
@@ -8534,18 +8534,18 @@ msgstr "Τα μεγέθη που παρατίθενται παρακάτω, κα
 msgid "Comment must be manually approved"
 msgstr "Το σχόλιο θα πρέπει να εγκριθεί χειροκίνητα."
 
-#: wp-admin/nav-menus.php:623
+#: wp-admin/nav-menus.php:633
 msgid "<strong>Clicking the arrow to the right of any menu item</strong> in the editor will reveal a standard group of settings. Additional settings such as link target, CSS classes, link relationships, and link descriptions can be enabled and disabled via the Screen Options tab."
 msgstr "<strong>Πατώντας στο βελάκι στα δεξιά ενός μενού</strong> στον επεξεργαστή κειμένου θα εμφανιστεί ένα σύνολο από συνήθεις ρυθμίσεις. Επιπρόσθετες ρυθμίσεις, όπως ο στόχος του συνδέσμου, οι κλάσεις CSS του, οι συσχετισμοί του συνδέσμου και η περιγραφή του μπορούν να ενεργοποιηθούν και να απενεργοποιηθούν μέσω της καρτέλας Επιλογές Προβολής."
 
 #. translators: 1: URL to Widgets screen, 2 and 3: The names of the default
 #. themes.
-#: wp-admin/nav-menus.php:592
+#: wp-admin/nav-menus.php:602
 msgid "Menus can be displayed in locations defined by your theme, even used in sidebars by adding a &#8220;Navigation Menu&#8221; widget on the <a href=\"%1$s\">Widgets</a> screen. If your theme does not support the navigation menus feature (the default themes, %2$s and %3$s, do), you can learn about adding this support by following the Documentation link to the side."
 msgstr "Τα μενού μπορούν να εμφανιστούν σε σημεία που καθορίζει το ενεργό σας θέμα, ακόμη και σε πλευρικές στήλες, προσθέτοντας μια μικροεφαρμογή &#8220;Μενού Πλοήγησης&#8221; στην οθόνη των <a href=\"%1$s\">Μικροεφαρμογών</a>. Αν το θέμα σας δεν υποστηρίζει τη δυνατότητα μενού πλοήγησης (τα προεγκατεστημένα θέματα %2$s και %3$s τα υποστηρίζουν), μπορείτε να μάθετε περισσότερα σχετικά με αυτό ακολουθώντας τον σύνδεσμο Τεκμηρίωση στο πλάι."
 
 #. translators: %s: URL to Widgets screen.
-#: wp-admin/nav-menus.php:583
+#: wp-admin/nav-menus.php:593
 msgid "Your theme does not natively support menus, but you can use them in sidebars by adding a &#8220;Navigation Menu&#8221; widget on the <a href=\"%s\">Widgets</a> screen."
 msgstr "Το θέμα σας δεν υποστηρίζει εγγενώς μενού, αλλά μπορείτε να τα χρησιμοποιήσετε στις πλευρικές στήλες με την προσθήκη της μικροεφαρμογής &#8220;Προσαρμοσμένο Μενού&#8221; στην οθόνη <a href=\"%s\">Μικροεφαρμογών</a>."
 
@@ -8822,7 +8822,7 @@ msgstr "Η αρχειοθήκη αυτή δεν περιέχει αρχεία."
 msgid "To navigate between revisions, <strong>drag the slider handle left or right</strong> or <strong>use the Previous or Next buttons</strong>."
 msgstr "Για να μεταβείτε από τη μια αναθεώρηση στην άλλη, <strong>σύρετε το χειριστήριο αριστερά ή δεξιά αντίστοιχα</strong> ή <strong>χρησιμοποιήστε τα κουμπιά Προηγούμενο και Επόμενο</strong>."
 
-#: wp-admin/customize.php:147 wp-admin/includes/class-wp-debug-data.php:440
+#: wp-admin/customize.php:151 wp-admin/includes/class-wp-debug-data.php:440
 #: wp-admin/includes/dashboard.php:1140 wp-admin/includes/dashboard.php:1339
 msgid "Loading&hellip;"
 msgstr "Φόρτωση&hellip;"
@@ -8839,11 +8839,11 @@ msgstr "Το στοιχείο που θέλετε να επαναφέρετε α
 msgid "The item you are trying to move to the Trash no longer exists."
 msgstr "Το στοιχείο που θέλετε να μεταφέρετε στα διεγραμμένα δεν υπάρχει πλέον."
 
-#: wp-admin/nav-menus.php:978
+#: wp-admin/nav-menus.php:988
 msgid "Drag the items into the order you prefer. Click the arrow on the right of the item to reveal additional configuration options."
 msgstr "Σύρετε κάθε στοιχείο στη σειρά που προτιμάτε. Κάντε κλικ στο βέλος στα δεξιά του στοιχείου να αποκαλύψετε πρόσθετες επιλογές διαμόρφωσης."
 
-#: wp-admin/nav-menus.php:611
+#: wp-admin/nav-menus.php:621
 msgid "If you haven&#8217;t yet created any menus, <strong>click the &#8217;create a new menu&#8217; link</strong> to get started"
 msgstr "Αν δεν έχετε ακόμα δημιουργήσει μενού, <strong>κάντε κλίκ στο &#8217;φτιάξτε ένα νέο μενού&#8217; </strong> για να ξεκινήσετε."
 
@@ -8883,105 +8883,105 @@ msgctxt "Followed by post revision info"
 msgid "From:"
 msgstr "Από:"
 
-#: wp-admin/nav-menus.php:794
+#: wp-admin/nav-menus.php:804
 msgctxt "menu"
 msgid "Use new menu"
 msgstr "Χρήση νέου μενού"
 
-#: wp-admin/nav-menus.php:775
+#: wp-admin/nav-menus.php:785
 msgctxt "menu"
 msgid "Edit"
 msgstr "Επεξεργασία"
 
-#: wp-admin/nav-menus.php:744
+#: wp-admin/nav-menus.php:754
 msgid "Select a Menu"
 msgstr "Επιλογή μενού"
 
-#: wp-admin/nav-menus.php:735
+#: wp-admin/nav-menus.php:745
 msgid "Assigned Menu"
 msgstr "Ορίστηκε στο μενού"
 
-#: wp-admin/nav-menus.php:734
+#: wp-admin/nav-menus.php:744
 msgid "Theme Location"
 msgstr "Τοποθεσία μενού"
 
-#: wp-admin/nav-menus.php:703
+#: wp-admin/nav-menus.php:713
 msgid "Manage Locations"
 msgstr "Διαχείριση τοποθεσιών"
 
-#: wp-admin/nav-menus.php:692
+#: wp-admin/nav-menus.php:702
 msgid "Edit Menus"
 msgstr "Επεξεργασία μενού"
 
-#: wp-admin/nav-menus.php:640
+#: wp-admin/nav-menus.php:650
 msgid "To add a new menu instead of assigning an existing one, <strong>click the &#8217;Use new menu&#8217; link</strong>. Your new menu will be automatically assigned to that theme location"
 msgstr "Για να προσθέσετε ένα νέο μενού, αντί να χρησιμοποιήσετε ένα υπάρχον, <strong>πατήστε στο σύνδεσμο &#8217;Χρήση νέου μενού&#8217;</strong>. Το νέο μενού που θα δημιουργήσετε θα ορισθεί αυτόματα στη συγκεκριμένη τοποθεσία του θέματός σας"
 
-#: wp-admin/nav-menus.php:639
+#: wp-admin/nav-menus.php:649
 msgid "To edit a menu currently assigned to a theme location, <strong>click the adjacent &#8217;Edit&#8217; link</strong>"
 msgstr "Για να επεξεργαστείτε ένα μενού που έχει ορισθεί σε κάποια τοποθεσία του θέματος <strong>πατήστε το διπλανό σύνδεσμο &#8217;Επεξεργασία&#8217;</strong>"
 
-#: wp-admin/nav-menus.php:638
+#: wp-admin/nav-menus.php:648
 msgid "To assign menus to one or more theme locations, <strong>select a menu from each location&#8217;s drop down.</strong> When you&#8217;re finished, <strong>click Save Changes</strong>"
 msgstr "Για να αναθέσετε μενού σε μία ή περισσότερες τοποθεσίες του θέματός σας, <strong>επιλέξτε ένα μενού από το πτυσσόμενο μενού κάθε τοποθεσίας</strong>. Όταν έχετε ολοκληρώσει, <strong>πατήστε Αποθήκευση Αλλαγών</strong>."
 
-#: wp-admin/nav-menus.php:637
+#: wp-admin/nav-menus.php:647
 msgid "This screen is used for globally assigning menus to locations defined by your theme."
 msgstr "Αυτή η οθόνη χρησιμοποιείται για την ανάθεση σε global επίπεδο μενού σε σημεία που ορίζονται από το θέμα σας."
 
-#: wp-admin/nav-menus.php:632
+#: wp-admin/nav-menus.php:642
 msgid "Editing Menus"
 msgstr "Επεξεργασία μενού"
 
-#: wp-admin/nav-menus.php:627
+#: wp-admin/nav-menus.php:637
 msgid "Delete a menu item by <strong>expanding it and clicking the Remove link</strong>"
 msgstr "Για να διαγράψετε ένα στοιχείο μενού, <strong>αναπτύξτε το και πιέστε Διαγραφή</strong>."
 
-#: wp-admin/nav-menus.php:626
+#: wp-admin/nav-menus.php:636
 msgid "To reorganize menu items, <strong>drag and drop items with your mouse or use your keyboard</strong>. Drag or move a menu item a little to the right to make it a submenu"
 msgstr "Μπορείτε να αναδιοργανώσετε τα στοιχεία ενός μενού <strong>με το πληκτρολόγιο ή σέρνοντας τα με το ποντίκι</strong>. Για να μεταφέρετε ένα στοιχείο σε θέση υπομενού μετακινήστε το ελαφρά προς τα δεξιά."
 
-#: wp-admin/nav-menus.php:624
+#: wp-admin/nav-menus.php:634
 msgid "Add one or several items at once by <strong>selecting the checkbox next to each item and clicking Add to Menu</strong>"
 msgstr "Για να προσθέσετε ένα ή περισσότερα στοιχεία ταυτόχρονα <strong> τσεκάρετε το πλαίσιο επιλογής δίπλα σε κάθε στοιχείo και πατήστε το κουμπί Προσθήκη στο μενού</strong>"
 
-#: wp-admin/nav-menus.php:622
+#: wp-admin/nav-menus.php:632
 msgid "Each navigation menu may contain a mix of links to pages, categories, custom URLs or other content types. Menu links are added by selecting items from the expanding boxes in the left-hand column below."
 msgstr "Κάθε μενού μπορεί να περιέχει συνδυασμό από συνδέσμους σε σελίδες, κατηγορίες, προσαρμοσμένους συνδέσμους ή ακόμη σε άλλους τύπους περιεχομένου. Τα μενού με συνδέσμους προστίθενται επιλέγοντας αντικείμενα από τα πτυσσόμενα κουτιά στην αριστερή στήλη από κάτω."
 
-#: wp-admin/nav-menus.php:617
+#: wp-admin/nav-menus.php:627
 msgid "Menu Management"
 msgstr "Διαχείριση μενού"
 
-#: wp-admin/nav-menus.php:612
+#: wp-admin/nav-menus.php:622
 msgid "You can assign theme locations to individual menus by <strong>selecting the desired settings</strong> at the bottom of the menu editor. To assign menus to all theme locations at once, <strong>visit the Manage Locations tab</strong> at the top of the screen."
 msgstr "Μπορείτε να αναθέσετε τοποθεσίες θεμάτων σε συγκεκριμένα μενού <strong>επιλέγοντας τις επιθυμητές ρυθμίσεις</strong> στο κάτω τμήμα του επεξεργαστή μενού. Για να αναθέσετε μενού σε όλες τις τοποθεσίες μενού με μια κίνηση, <strong>πηγαίνετε στην καρτέλα Διαχείριση Τοποθεσιών</strong> στην κορυφή της οθόνης."
 
-#: wp-admin/nav-menus.php:610
+#: wp-admin/nav-menus.php:620
 msgid "To edit an existing menu, <strong>choose a menu from the drop down and click Select</strong>"
 msgstr "Για να επεξεργαστείτε ένα υπάρχον μενού, <strong>επιλέξετε ένα μενού από το drop down και κάντε κλικ στην Επιλογή</strong>"
 
-#: wp-admin/nav-menus.php:609
+#: wp-admin/nav-menus.php:619
 msgid "The menu management box at the top of the screen is used to control which menu is opened in the editor below."
 msgstr "Το κουτί με το μενού διαχερίσης του μενού στην κορυφή της οθόνης χρησιμοποιείται για να ελέγχει ποια μενού είναι ανοικτά στον επεξεργαστή κειμένου από κάτω."
 
-#: wp-admin/nav-menus.php:599
+#: wp-admin/nav-menus.php:609
 msgid "Add, organize, and modify individual menu items"
 msgstr "Προσθέστε, οργανώσετε και να τροποποιήσετε μεμονωμένα στοιχεία μενού"
 
-#: wp-admin/nav-menus.php:598
+#: wp-admin/nav-menus.php:608
 msgid "Create, edit, and delete menus"
 msgstr "Δημιουργήσετε, επεξεργαστείτε και να διαγράψετε μενού"
 
-#: wp-admin/nav-menus.php:597 wp-admin/themes.php:132
+#: wp-admin/nav-menus.php:607 wp-admin/themes.php:132
 msgid "From this screen you can:"
 msgstr "Από την οθόνη αυτή μπορείτε να:"
 
-#: wp-admin/nav-menus.php:589
+#: wp-admin/nav-menus.php:599
 msgid "This screen is used for managing your navigation menus."
 msgstr "Από την οθόνη αυτή διαχειρίζεστε τα μενού πλοήγησης."
 
-#: wp-admin/nav-menus.php:442
+#: wp-admin/nav-menus.php:452
 msgid "Menu locations updated."
 msgstr "Οι τοποθεσίες ενημερώθηκαν."
 
@@ -9031,11 +9031,11 @@ msgstr "Άρνηση : %s"
 msgid "Capabilities"
 msgstr "Δυνατότητες"
 
-#: wp-admin/nav-menus.php:1027 wp-admin/network/settings.php:490
+#: wp-admin/nav-menus.php:1045 wp-admin/network/settings.php:490
 msgid "Menu Settings"
 msgstr "Ρυθμίσεις μενού"
 
-#: wp-admin/nav-menus.php:935
+#: wp-admin/nav-menus.php:945
 msgid "Menu structure"
 msgstr "Δομή μενού"
 
@@ -9070,7 +9070,7 @@ msgstr "Δεν επιτρέπεται η μεταφορά του στοιχεί�
 msgid "%s has taken over and is currently editing."
 msgstr "Ο χρήστης %s έχει πάρει τη διαχείριση και τροποποιεί."
 
-#: wp-admin/nav-menus.php:845
+#: wp-admin/nav-menus.php:855
 msgid "Select a menu to edit:"
 msgstr "Επιλογή μενού για επεξεργασία:"
 
@@ -9087,15 +9087,15 @@ msgstr "Τέλεια, τα καταφέρατε μέχρι αυτό το σημ�
 msgid "Client version"
 msgstr "Έκδοση προγράμματος πελάτη"
 
-#: wp-admin/nav-menus.php:1043
+#: wp-admin/nav-menus.php:1061
 msgid "Auto add pages"
 msgstr "Αυτόματη προσθήκη σελίδων"
 
-#: wp-admin/nav-menus.php:1001
+#: wp-admin/nav-menus.php:1015
 msgid "Give your menu a name, then click Create Menu."
 msgstr "Δώστε στο μενού ένα όνομα και έπειτα πιέστε Δημιουργία μενού."
 
-#: wp-admin/nav-menus.php:976
+#: wp-admin/nav-menus.php:986
 msgid "Edit your default menu by adding or removing items. Drag the items into the order you prefer. Click Create Menu to save your changes."
 msgstr "Επεξεργαστείτε το προεγκατεστημένο μενού προσθέτοντας ή αφαιρώντας αντικείμενα. Σύρετε κάθε αντικείμενο στη θέση που επιθυμείτε. Πατήστε Δημιουργία Μενού για να αποθηκεύσετε τις αλλαγές σας."
 
@@ -10532,8 +10532,8 @@ msgstr "Το αριστερό μενού πλοήγησης παρέχει συ�
 #: wp-admin/includes/class-custom-image-header.php:99
 #: wp-admin/includes/class-wp-screen.php:853 wp-admin/includes/ms.php:1137
 #: wp-admin/index.php:42 wp-admin/link-manager.php:56 wp-admin/media-new.php:48
-#: wp-admin/media.php:85 wp-admin/my-sites.php:43 wp-admin/nav-menus.php:604
-#: wp-admin/nav-menus.php:645 wp-admin/options-discussion.php:23
+#: wp-admin/media.php:85 wp-admin/my-sites.php:43 wp-admin/nav-menus.php:614
+#: wp-admin/nav-menus.php:655 wp-admin/options-discussion.php:23
 #: wp-admin/options-general.php:41 wp-admin/options-media.php:33
 #: wp-admin/options-permalink.php:22 wp-admin/options-reading.php:24
 #: wp-admin/options-writing.php:22 wp-admin/plugin-editor.php:124
@@ -10727,7 +10727,7 @@ msgstr "Οι ρυθμίσεις αποθηκεύτηκαν."
 #: wp-admin/includes/class-custom-image-header.php:135
 #: wp-admin/includes/ms.php:1159 wp-admin/index.php:110
 #: wp-admin/link-manager.php:77 wp-admin/media-new.php:59 wp-admin/media.php:95
-#: wp-admin/my-sites.php:50 wp-admin/nav-menus.php:652
+#: wp-admin/my-sites.php:50 wp-admin/nav-menus.php:662
 #: wp-admin/options-discussion.php:30 wp-admin/options-general.php:47
 #: wp-admin/options-media.php:39 wp-admin/options-permalink.php:59
 #: wp-admin/options-reading.php:51 wp-admin/options-writing.php:51
@@ -11765,7 +11765,7 @@ msgstr "Η διαρρύθμιση της οθόνης αυτής προσαρμ�
 msgid "Search Installed Plugins"
 msgstr "Αναζήτηση εγκατεστημένων προσθέτων"
 
-#: wp-admin/nav-menus.php:716
+#: wp-admin/nav-menus.php:726
 msgid "Your theme supports one menu. Select which menu you would like to use."
 msgstr "Επιλέξτε μενού για το θέμα σας."
 
@@ -12106,7 +12106,7 @@ msgstr "Κλάσεις CSS (προαιρετικό)"
 msgid "Link Target"
 msgstr "Στόχος συνδέσμου"
 
-#: wp-admin/nav-menus.php:961 wp-admin/nav-menus.php:1118
+#: wp-admin/nav-menus.php:971 wp-admin/nav-menus.php:1136
 msgid "Save Menu"
 msgstr "Αποθήκευση μενού"
 
@@ -12252,7 +12252,7 @@ msgstr "Η διεύθυνση αυτή χρησιμοποιείται για δ�
 msgid "View All"
 msgstr "Προβολή όλων"
 
-#: wp-admin/nav-menus.php:374 wp-admin/nav-menus.php:396
+#: wp-admin/nav-menus.php:384 wp-admin/nav-menus.php:406
 msgid "Please enter a valid menu name."
 msgstr "Συμπληρώστε έγκυρο όνομα μενού."
 
@@ -15217,7 +15217,7 @@ msgstr "Η κεφαλίδα αναβαθμίστηκε. <a href=\"%s\">Προβ�
 msgid "Custom Header"
 msgstr "Ειδική κεφαλίδα"
 
-#: wp-admin/includes/template.php:2487 wp-admin/nav-menus.php:803
+#: wp-admin/includes/template.php:2487 wp-admin/nav-menus.php:813
 #: wp-admin/options.php:402
 msgid "Save Changes"
 msgstr "Αποθήκευση αλλαγών"

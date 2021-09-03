@@ -48,6 +48,10 @@ class WoofiltersControllerWpf extends ControllerWpf {
 			do_action( 'litespeed_purge_all' );
 		}
 
+		if ( is_plugin_active( 'wp-rocket/wp-rocket.php' ) && function_exists( 'rocket_clean_domain' ) ) {
+			rocket_clean_domain();
+		}
+
 		check_ajax_referer('wpf-save-nonce', 'wpfNonce');
 		if (!current_user_can('manage_options')) {
 			wp_die();
@@ -544,7 +548,12 @@ class WoofiltersControllerWpf extends ControllerWpf {
 					'include_children' => true
 				);
 			} elseif ($queryvars['vendors']) {
-				$args['author'] = $queryvars['vendors'];
+				$author = preg_replace( '|[^0-9,-]|', '', $queryvars['vendors'] );
+				if ( ! empty( $author ) ) {
+					$args['author'] = $queryvars['vendors'];
+				} else {
+					$args['author_name'] = $queryvars['vendors'];
+				}
 			} elseif (is_array($queryvars['tax_page'])) {
 				$args['tax_query'][] = array(
 					'taxonomy' => $queryvars['tax_page']['taxonomy'],

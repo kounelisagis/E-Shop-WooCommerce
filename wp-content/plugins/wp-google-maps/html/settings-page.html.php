@@ -303,7 +303,7 @@
 				<option value="https://tile.thunderforest.com/cycle/{z}/{x}/{y}.png"
 					data-preview-image="https://b.tile.opencyclemap.org/cycle/16/33199/22539.png">
 					<?php
-					_e('OpenCycleMap', 'wp-google-maps');
+					_e('OpenCycleMap *', 'wp-google-maps');
 					?>
 				</option>
 				
@@ -335,31 +335,31 @@
 					?>
 				</option>
 				
-				<option value="https://c.tile.stamen.com/watercolor/{z}/{x}/{y}.jpg"
-					data-preview-image="https://wiki.openstreetmap.org/w/images/d/d2/Tile_watercolor_stamen.jpg">
+				<option value="http://c.tile.stamen.com/watercolor/{z}/{x}/{y}.jpg"
+					data-preview-image="http://wiki.openstreetmap.org/w/images/d/d2/Tile_watercolor_stamen.jpg">
 					<?php
 					_e('Stamen Watercolor', 'wp-google-maps');
-					?>
+					?> (No SSL)
 				</option>
 				
 				<option value="https://tile.thunderforest.com/transport/{z}/{x}/{y}.png"
 					data-preview-image="https://a.tile2.opencyclemap.org/transport/13/4150/2819.png">
 					<?php
-					_e('Transport Map', 'wp-google-maps');
+					_e('Transport Map *', 'wp-google-maps');
 					?>
 				</option>
 				
 				<option value="https://tile.thunderforest.com/landscape/{z}/{x}/{y}.png"
 					data-preview-image="https://a.tile.thunderforest.com/landscape/14/4773/6144.png">
 					<?php
-					_e('Thunderforest Landscape', 'wp-google-maps');
+					_e('Thunderforest Landscape *', 'wp-google-maps');
 					?>
 				</option>
 				
 				<option value="https://tile.thunderforest.com/outdoors/{z}/{x}/{y}.png"
 					data-preview-image="https://a.tile.thunderforest.com/outdoors/14/4772/6144.png">
 					<?php
-					_e('Thunderforest Outdoors', 'wp-google-maps');
+					_e('Thunderforest Outdoors *', 'wp-google-maps');
 					?>
 				</option>
 				
@@ -370,35 +370,53 @@
 					?>
 				</option>
 				
-				<option value="https://www.openptmap.org/tiles/{z}/{x}/{y}.png"
-					data-preview-image="https://www.openptmap.org/tiles//10/529/366.png">
+				<option value="http://www.openptmap.org/tiles/{z}/{x}/{y}.png"
+					data-preview-image="http://www.openptmap.org/tiles//10/529/366.png">
 					<?php
 					_e('OpenPtMap', 'wp-google-maps');
-					?>
+					?> (No SSL)
 				</option>
 				
 				<option value="https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png">
 					<?php
-					_e('Carto Light (Positron)', 'wp-google-maps');
+					_e('Carto Light (Positron) *', 'wp-google-maps');
 					?>
 				</option>
 				
 				<option value="https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png"
 					data-preview-image="https://wiki.openstreetmap.org/w/images/b/ba/Cartodb_dark_tile.png">
 					<?php
-					_e('Carto Dark (Dark Matter)', 'wp-google-maps');
+					_e('Carto Dark (Dark Matter) *', 'wp-google-maps');
 					?>
 				</option>
-				
-				<option value="https://maps-cdn.salesboard.biz/styles/klokantech-3d-gl-style/{z}/{x}/{y}.png">
+
+				<option value="https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png">
 					<?php
-					_e('Klokantech 3d', 'wp-google-maps');
+					_e('MapTiler Streets *', 'wp-google-maps');
+					?>
+				</option>
+
+				<option value="https://api.maptiler.com/maps/outdoor/{z}/{x}/{y}.png">
+					<?php
+					_e('MapTiler Outdoor *', 'wp-google-maps');
+					?>
+				</option>
+
+				<option value="https://api.maptiler.com/maps/pastel/{z}/{x}/{y}.png">
+					<?php
+					_e('MapTiler Pastel *', 'wp-google-maps');
+					?>
+				</option>
+
+				<option value="https://api.maptiler.com/maps/basic/{z}/{x}/{y}.png">
+					<?php
+					_e('MapTiler Basic *', 'wp-google-maps');
 					?>
 				</option>
 				
 				<option value="https://caltopo.com/tile/mb_topo/{z}/{x}/{y}.png">
 					<?php
-					_e('Caltopo', 'wp-google-maps');
+					_e('Caltopo *', 'wp-google-maps');
 					?>
 				</option>
 
@@ -409,7 +427,7 @@
 				</option>
 				
 			</select> 
-			<small>&nbsp; <?php _e("You can add an API key under the Advanced Settings tab if required by your TileServer provider", "wp-google-maps"); ?></small>
+			<small>&nbsp; * <?php _e("You can add an API key under the Advanced Settings tab if required by your TileServer provider", "wp-google-maps"); ?></small>
 		</fieldset>
 		
 		<fieldset data-required-maps-engine="open-layers">

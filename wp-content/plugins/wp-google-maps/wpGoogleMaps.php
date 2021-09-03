@@ -3,7 +3,7 @@
 Plugin Name: WP Google Maps
 Plugin URI: https://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 8.1.14
+Version: 8.1.15
 Author: WP Google Maps
 Author URI: https://www.wpgmaps.com
 Text Domain: wp-google-maps
@@ -12,6 +12,21 @@ Domain Path: /languages
 
 
 /*
+ * 8.1.15 - 2021-09-01
+ * Fixed issue where special symbols would be overprocessed by the KSES sanitizer
+ * Fixed issue where Avada Alert icons would not show due to our icon libraries loading in post/page editor
+ * Fixed issue where modern store locator would not display correctly in OpenLayers 
+ * Remove Klokantech 3D tileserver as this does not appear to be supported (OpenLayers)
+ * Added MapTiler Streets, Outdoor, Pastel, Basic (OpenLayers)
+ * Added indicator for most tilesets that require an API key (OpenLayers)
+ * Added preinit event delegate
+ * Added global initMaps method
+ * Added global onScroll method
+ * Added core integration for Real Cookie Banner integration
+ * Updated it_IT translation file (Thanks to Alessio Cornale)
+ * Updated Stamen Watercolor tileset to point to HTTP host (OpenLayers)
+ * Updated OpenPtMap tileset to point to HTTP host (OpenLayers)
+ *
  * 8.1.14 - 2021-07-28
  * Fixed issue where custom scripts (CSS & JS) would be html_entities encoded by the wp_kses_post function, causing custom scripts to run unpredictably
  * Fixed issue where uncaught exception would cause errors to show on the frontend, although it is gracefully handled

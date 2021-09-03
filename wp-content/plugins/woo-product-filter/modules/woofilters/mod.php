@@ -154,31 +154,6 @@ class WoofiltersWpf extends ModuleWpf {
 							foreach ($widgets as $widget) {
 								$ids = explode('-', $widget);
 
-								// trying to find the filter shortcode in the text widget
-								$opts = $wp_registered_widgets[ $widget ];
-								$id_base = is_array( $opts['callback'] ) ? $opts['callback'][0]->id_base : $opts['callback'];
-
-								if ( ! $id_base ) {
-									continue;
-								}
-
-								$instance = get_option( 'widget_' . $id_base );
-
-								if ( ! $instance || ! is_array( $instance ) ) {
-									continue;
-								}
-
-								foreach ( $instance as $item ) {
-									if ( isset( $item['text'] ) ) {
-										preg_match( '/\[wpf-filters id=(\d+)\]/', $item['text'], $matches );
-										if ( isset( $matches[1] ) ) {
-											$filterId = $matches[1];
-											$preselects = array_merge($preselects, $this->getPreselectedParamsForFilter($filterId));
-											$filters[$filterId] = 1;
-										}
-									}
-								}
-
 								// if the filter is added using the Legacy Widget
 								if ( count($ids) == 2 && $ids[0] == $filterWidget ) {
 									if ( isset($widgetOpions[$ids[1]]) && isset($widgetOpions[$ids[1]]['id']) ) {
@@ -189,8 +164,40 @@ class WoofiltersWpf extends ModuleWpf {
 											$filters[$filterId] = 1;
 										}
 									}
-								}
+								} elseif ( isset( $wp_registered_widgets[ $widget ] ) ) {
+								// trying to find the filter shortcode in the text widget
+									$opts    = $wp_registered_widgets[ $widget ];
+									$id_base = is_array( $opts['callback'] ) ? $opts['callback'][0]->id_base : $opts['callback'];
 
+									if ( ! $id_base ) {
+										continue;
+									}
+
+									$instance = get_option( 'widget_' . $id_base );
+
+									if ( ! $instance || ! is_array( $instance ) ) {
+										continue;
+									}
+
+									foreach ( $instance as $item ) {
+										$content = '';
+
+										if ( isset( $item['text'] ) ) {
+											$content = $item['text'];
+										} elseif ( isset( $item['content'] ) ) {
+											$content = $item['content'];
+										}
+
+										if ( '' !== $content ) {
+											preg_match( '/\[wpf-filters\s+id="?(\d)+"?\]/', $content, $matches );
+											if ( isset( $matches[1] ) ) {
+												$filterId             = $matches[1];
+												$preselects           = array_merge( $preselects, $this->getPreselectedParamsForFilter( $filterId ) );
+												$filters[ $filterId ] = 1;
+											}
+										}
+									}
+								}
 							}
 						}
 					}
@@ -1093,7 +1100,7 @@ class WoofiltersWpf extends ModuleWpf {
 			if ( !$hideWithoutProducts || 'subcategories' != $displayMode || is_search()) {
 				if ( is_product_category() && $displayCategory && $displayMobile ) {
 					$mode = 1;
-				} else if ( $this->isWcVendorsPluginActivated() && WCV_Vendors::is_vendor_page() && $displayShop && $displayMobile ) {
+				} else if ( $this->isVendor() && $displayShop && $displayMobile ) {
 					$mode = 7;
 				} else if ( is_shop() && $displayShop && $displayMobile ) {
 					$mode = 2;
@@ -1116,6 +1123,20 @@ class WoofiltersWpf extends ModuleWpf {
 		}
 		return $this->renderModes[$id];
 	}
+
+	private function isVendor() {
+
+		if ($this->isWcVendorsPluginActivated() && WCV_Vendors::is_vendor_page()) {
+			return true;
+		}
+
+		if ( is_plugin_active( 'dokan-lite/dokan.php' ) && function_exists( 'dokan_is_store_page' ) ) {
+			return dokan_is_store_page();
+		}
+
+		return false;
+	}
+
 	private function wpf_get_loop_prop( $prop ) {
 		return isset( $GLOBALS['woocommerce_loop'], $GLOBALS['woocommerce_loop'][ $prop ] ) ? $GLOBALS['woocommerce_loop'][ $prop ] : '';
 	}
@@ -1341,19 +1362,16 @@ class WoofiltersWpf extends ModuleWpf {
 			$maxPrice
 		), 'subtract' );
 
-		if (is_null($rate)) {
-			$rate = $this->getCurrentRate();
-		}
 		$metaQuery = array('key' => '_price', 'price_filter' => true, 'type' => 'DECIMAL(20,3)');
 		if (is_null($minPrice)) {
 			$metaQuery['compare'] = '<=';
-			$metaQuery['value'] = $maxPrice / $rate;
+			$metaQuery['value'] = $maxPrice;
 		} elseif (is_null($maxPrice)) {
 			$metaQuery['compare'] = '>=';
-			$metaQuery['value'] = $minPrice / $rate;
+			$metaQuery['value'] = $minPrice;
 		} else {
 			$metaQuery['compare'] = 'BETWEEN';
-			$metaQuery['value'] = array($minPrice / $rate, $maxPrice / $rate);
+			$metaQuery['value'] = array($minPrice, $maxPrice);
 		}
 		add_filter('posts_where', array($this, 'controlDecimalType'), 9999, 2);
 

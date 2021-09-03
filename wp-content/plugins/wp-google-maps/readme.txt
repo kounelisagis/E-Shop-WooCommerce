@@ -1,7 +1,7 @@
 === WP Google Maps ===
 Contributors: WPGMaps, NickDuncan, CodeCabin_, DylanAuty
 Donate link: https://www.wpgmaps.com
-Tags: google maps, maps, map, map markers, google map, google maps plugin, wp google maps, wp google map, map plugin, store locator, google map plugin, map widget, open layers,
+Tags: google maps, maps, map, map markers, google map, google maps plugin, wp google maps, wp google map, map plugin, store locator, google map plugin, map widget, open layers, elementor map
 Requires at least: 3.5
 Tested up to: 5.8
 Requires PHP: 5.3
@@ -18,6 +18,8 @@ Add a customized Google map or Store Locator to your WordPress posts and/or page
 
 While the free version of WP Google Maps allows you to create a Google map with as many markers as you like, the Pro version allows you to do so much more! 
 
+Create Elementor Maps and map blocks easily with our WP Google Maps Elementor map block integration, straight out the box!
+
 The [WP Google Maps Pro Version](https://www.wpgmaps.com/purchase-professional-version/) version allows you create custom Google maps with high quality markers containing locations, descriptions, images, categories, links and directions. 
 
 = Lite Version (Free) =
@@ -26,6 +28,7 @@ The [WP Google Maps Pro Version](https://www.wpgmaps.com/purchase-professional-v
 * Super easy to use, no coding required!
 * Create as many map markers as you need by simply typing in the address
 * Responsive maps
+* Elementor Map block
 * Edit your map markers with the click of a button
 * 9 popular map themes to choose from
 * Create or add your own map theme
@@ -215,6 +218,19 @@ Please update to 7.11.18 or above to ensure you are using the latest security en
 Please update your WP Google Maps version to 6.3.15 to ensure you are using the latest security enhancements.
 
 == Changelog ==
+
+= 8.1.15 - 2021-09-01 =
+* Fixed issue where Avada Alert icons would not show due to our icon libraries loading in post/page editor
+* Remove Klokantech 3D tileserver as this does not appear to be supported (OpenLayers)
+* Added MapTiler Streets, Outdoor, Pastel, Basic (OpenLayers)
+* Added indicator for most tilesets that require an API key (OpenLayers)
+* Added preinit event delegate
+* Added global initMaps method
+* Added global onScroll method
+* Added core integration for Real Cookie Banner integration
+* Updated it_IT translation file (Thanks to Alessio Cornale)
+* Updated Stamen Watercolor tileset to point to HTTP host (OpenLayers)
+* Updated OpenPtMap tileset to point to HTTP host (OpenLayers)
 
 = 8.1.14 - 2021-07-28 =
 * Fixed issue where custom scripts (CSS & JS) would be html_entities encoded by the wp_kses_post function, causing custom scripts to run unpredictably

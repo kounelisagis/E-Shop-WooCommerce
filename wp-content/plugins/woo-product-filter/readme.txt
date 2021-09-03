@@ -4,7 +4,7 @@ Donate link: https://woobewoo.com/product/woocommerce-filter/
 Tags: product filter, woocommerce product filter, shop filter, e-commerce filter, woocommerce filter, product, filter 
 Requires at least: 3.4.0
 Tested up to: 5.8
-Stable tag: 1.5.6
+Stable tag: 1.5.7
 
 Filter products by categories, attributes, prices, and more. 100% Elementor Compatibility. Shoppers easily find products with WooCommerce Product Filter
 
@@ -144,6 +144,19 @@ If none of this advice helps you, contact us via [support form on our website](h
 You may help us translate the plugin into your language and get the PRO version of the plugin for free as soon as it is released. If this method seems to be too complicated, please send us a request and we will let you know as soon as the WooBeWoo Filter plugin will be available in your localization.
 
 == Changelog ==
+
+= 1.5.7 =
+ * Add clean cache wp-rocket on save filter
+ * Fixed elementor widget
+ * Fixed wpfslug
+ * Added border color for checked checkbox
+ * Added support plugin dokan vendors
+ * Fixed Check page category
+ * Fixed price slider with multiple currencies
+ * Fixed behavior of redirect_only_click and auto_update_filter options
+ * Fixed price range with multiple currencies
+ * Fixed price and tax with multiple currencies
+ * Fixed select local attribute sql
 
 = 1.5.6 =
  * Added support for the "sale_products" shortcode and the "on_sale" attribute

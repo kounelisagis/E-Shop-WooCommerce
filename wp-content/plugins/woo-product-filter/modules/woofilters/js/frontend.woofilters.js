@@ -11,6 +11,7 @@
 	WpfFrontendPage.prototype.init = (function () {
 		var _thisObj = this.$obj;
 		app.wpfNewUrl = '';
+		_thisObj.filterClick = true;
 
 		_thisObj.setCurrentLocation();
 		_thisObj.filterLoadTypes = [];
@@ -266,18 +267,23 @@
 			triggerName = 'wpfAttrSliderChange';
 		}
 		
-		var minSelector = filter.closest('.wpfFilterWrapper').find(minInputId),
-			maxSelector = filter.closest('.wpfFilterWrapper').find(maxInputId),
-			wpfDataStep = filter.closest('.wpfFilterWrapper').find('#wpfDataStep').val()
+		var minSelector = wrapper.find(minInputId),
+			maxSelector = wrapper.find(maxInputId),
+			wpfDataStep = wrapper.find('#wpfDataStep').val()
 		if (wpfDataStep == '0.001') {
 			wpfDataStep = '0.00000001';
 		}
 		wpfDataStep = Number(wpfDataStep);
+
 		var valMin = parseFloat(minSelector.attr('min')),
 			valMax = parseFloat(maxSelector.attr('max')),
 			curUrl = window.location.href,
 			urlParams = _thisObj.findGetParameter(curUrl),
-			minPriceGetParams = urlParams.min_price ? parseFloat(urlParams.min_price) : valMin,
+			rate = filter.data('rate');
+
+		urlParams = _thisObj.getConvertedPrices(urlParams, rate);
+
+		var	minPriceGetParams = urlParams.min_price ? parseFloat(urlParams.min_price) : valMin,
 			maxPriceGetParams = urlParams.max_price ? parseFloat(urlParams.max_price) : valMax;
 		
 		if (filterType === 'attr') {
@@ -389,12 +395,13 @@
 		    autoUpdateFilter  = Number(settings.settings.auto_update_filter),
 			isButton = ( mainWrapper.find('.wpfFilterButton').length > 0 );
 		if (isButton) {
-			if (autoUpdateFilter || !redirectOnlyClick) {
+			// if there is a button and autoUpdateFilter is selected, then we only change the filter.
+			// If redirectOnlyClick is selected, then we change the filter and products, but do not redirect until the button is clicked
+			if (autoUpdateFilter || redirectOnlyClick) {
 				_thisObj.filterClick = false;
 				_thisObj.filtering(mainWrapper);
 			}
 		} else {
-			_thisObj.filterClick = true;
 			_thisObj.filtering(mainWrapper);
 		}
 	});
@@ -480,9 +487,8 @@
 		}
 
 		//Start filtering
-		jQuery('.wpfFilterButton').on('click', function(e){
+		jQuery('.wpfFilterButton').on('click', function(e) {
 			e.preventDefault();
-			_thisObj.filterClick = true;
 			_thisObj.setCurrentLocation();
 			_thisObj.filtering(jQuery(this).closest('.wpfMainWrapper'));
 		});
@@ -1033,8 +1039,6 @@
 			}
 
 			_thisObj.changeUrlByFilterParams($filtersDataFrontend);
-
-			_thisObj.changeSlugByUrl();
 			_thisObj.QStringWork('wpf_reload', '', noWooPage, $filterWrapper, 'remove');
 
 			//get paged params from html
@@ -1056,6 +1060,8 @@
 				'use_category_filtration': $generalSettings['settings']['use_category_filtration'] ? $generalSettings['settings']['use_category_filtration'] : 1,
 				'product_list_selector': $generalSettings['settings']['product_list_selector'] ? $generalSettings['settings']['product_list_selector'] : '',
 				'product_container_selector': $generalSettings['settings']['product_container_selector'] ? $generalSettings['settings']['product_container_selector'] : '',
+				'auto_update_filter' : Number($generalSettings['settings']['auto_update_filter']),
+				'redirect_only_click' : Number($generalSettings['settings']['redirect_only_click']),
 			};
 
 			// find woocommerce product loop type ( shorcode, loop )
@@ -1125,6 +1131,7 @@
 			if (history.pushState && app.wpfNewUrl != window.wpfOldUrl && !redirect) {
 				history.pushState({state: 1, rand: Math.random(), wpf: true}, '', app.wpfNewUrl);
 				app.wpfOldUrl = app.wpfNewUrl;
+				_thisObj.changeSlugByUrl();
 			}
 
 			if ( redirect && _thisObj.filterClick) {
@@ -1302,50 +1309,27 @@
 			for(var i = 0; i < count; i++){
 				switch ($filtersDataFrontend[i]['id']){
 					case 'wpfPrice':
-						if(priceFlag){
+					case 'wpfPriceRange':
+						if (priceFlag) {
 							var minPrice = $filtersDataFrontend[i]['settings']['min_price'],
 								maxPrice = $filtersDataFrontend[i]['settings']['max_price'],
-							    tax      = $filtersDataFrontend[i]['settings']['tax'];
+								tax = $filtersDataFrontend[i]['settings']['tax'];
 
 							if (typeof minPrice !== 'undefined' && minPrice.length > 0) {
 								_thisObj.QStringWork('min_price', minPrice, noWooPage, filterWrapper, 'change');
-							}else{
+							} else {
 								_thisObj.QStringWork('min_price', '', noWooPage, filterWrapper, 'remove');
 							}
 							if (typeof maxPrice !== 'undefined' && maxPrice.length > 0) {
 								_thisObj.QStringWork('max_price', maxPrice, noWooPage, filterWrapper, 'change');
-							}else{
+							} else {
 								_thisObj.QStringWork('max_price', '', noWooPage, filterWrapper, 'remove');
 							}
 							if (typeof tax !== 'undefined') {
 								_thisObj.QStringWork('tax', tax, noWooPage, filterWrapper, 'change');
-							}else{
+							} else {
 								_thisObj.QStringWork('tax', '', noWooPage, filterWrapper, 'remove');
 							}
-							priceFlag = false;
-						}
-						break;
-					case 'wpfPriceRange':
-						if(priceFlag){
-							var minPrice = $filtersDataFrontend[i]['settings']['min_price'],
-								maxPrice = $filtersDataFrontend[i]['settings']['max_price'],
-								tax      = $filtersDataFrontend[i]['settings']['tax'];
-							if (typeof minPrice !== 'undefined' && minPrice.length > 0 ) {
-								_thisObj.QStringWork('min_price', minPrice, noWooPage, filterWrapper, 'change');
-							}else{
-								_thisObj.QStringWork('min_price', '', noWooPage, filterWrapper, 'remove');
-							}
-							if (typeof maxPrice !== 'undefined' && maxPrice.length > 0) {
-								_thisObj.QStringWork('max_price', maxPrice, noWooPage, filterWrapper, 'change');
-							}else{
-								_thisObj.QStringWork('max_price', '', noWooPage, filterWrapper, 'remove');
-							}
-							if (typeof tax !== 'undefined') {
-								_thisObj.QStringWork('tax', tax, noWooPage, filterWrapper, 'change');
-							}else{
-								_thisObj.QStringWork('tax', '', noWooPage, filterWrapper, 'remove');
-							}
-
 							priceFlag = false;
 						}
 						break;
@@ -1465,8 +1449,8 @@
 		}
 
 		for (var key in searchParams) {
-			if(key === 'min_price' || key === 'max_price'){
-				key = 'min_price,max_price';
+			if(key === 'min_price'){
+				key = 'min_price,max_price,tax';
 			}
 
 			if(jQuery('.wpfFilterWrapper[data-get-attribute="'+key+'"]').length > 0){
@@ -1543,13 +1527,17 @@
 			forceThemeTemplates = false;
 		}
 
-		if (productListElem.length && (_thisObj.filterClick || !$wrapperSettings.auto_update_filter)) {
+		if (productListElem.length && (_thisObj.filterClick || $filterSettings.redirect_only_click)) {
 			_thisObj.enableFiltersLoader(_thisObj.currentLoadId, productListElem);
 		}
 
+		var onlyRecount = false;
 		if ($filterSettings === undefined) {
 			$filterSettings = [];
 		} else {
+			if (!_thisObj.filterClick && $filterSettings.auto_update_filter && !$filterSettings.redirect_only_click) {
+				onlyRecount = true;
+			}
 			$filterSettings = JSON.stringify($filterSettings);
 		}
 
@@ -1565,7 +1553,10 @@
 			currenturl: window.location.href,
 		};
 
-		if (forceThemeTemplates || _thisObj.filterLoadTypes[_thisObj.currentLoadId] == 'force') {
+		if (onlyRecount) {
+			_thisObj.ajaxOnlyRecount(requestData);
+			return;
+		} else if (forceThemeTemplates || _thisObj.filterLoadTypes[_thisObj.currentLoadId] == 'force') {
 			_thisObj.ajaxForceThemeTemplates(productContainerSelector, productListSelector, requestData, $wrapperSettings);
 			return;
 		}
@@ -1595,7 +1586,7 @@
 					if ('jscript' in res.data) {
 						_thisObj.setAjaxJScript(res.data['jscript']);
 					}
-					if (_thisObj.filterClick || !Number($wrapperSettings.auto_update_filter)) {
+					if (_thisObj.filterClick || Number($wrapperSettings.redirect_only_click)) {
 						if (customListSelector !== '' && productListElem.length) {
 							var loopContainer = productListElem;
 							loopContainer.html(res.data['productHtml']);
@@ -1764,12 +1755,20 @@
 				_thisObj.runReadyList();
     		}
 		});
+
+		_thisObj.ajaxOnlyRecount(requestData);
+
+		return false;
+	});
+
+	WpfFrontendPage.prototype.ajaxOnlyRecount = (function (requestData) {
+		var _thisObj = this.$obj;
 		if (!_thisObj.currentAjaxJSLoaded && requestData) {
 			requestData['only_recound'] = 1;
 			jQuery.sendFormWpf({
 				data: requestData,
-				onSuccess: function(res) {
-					if(!res.error) {
+				onSuccess: function (res) {
+					if (!res.error) {
 						if ('jscript' in res.data) {
 							_thisObj.setAjaxJScript(res.data['jscript']);
 						}
@@ -1778,7 +1777,6 @@
 			});
 		}
 
-		return false;
 	});
 
 	WpfFrontendPage.prototype.setAjaxJScript = (function(jscript){
@@ -1837,7 +1835,7 @@
 		}
 
 
-		// event for custom javascript hook, example: document.addEventListener('wpfAjaxSuccess', function(event) {alert('Custom js');});
+		// event for custom javascript hook, example: document.addEventListener('wpfAjaxSuccess', function(event) {console.log('Custom js');});
 		//document.dispatchEvent(new Event('wpfAjaxSuccess')); - not work in IE11
 		var customEvent = document.createEvent('Event');
 		customEvent.initEvent('wpfAjaxSuccess', false, true); 
@@ -1917,6 +1915,8 @@
 					}
 					break;
 				case 'wpfPrice':
+					var rate = $filter.data('rate');
+					urlParams = _thisObj.getConvertedPrices(urlParams, rate);
 					var minPrice = urlParams.min_price ? urlParams.min_price : $filter.attr('data-minvalue'),
 						maxPrice = urlParams.max_price ? urlParams.max_price : $filter.attr('data-maxvalue'),
 						skin = 'default';
@@ -1952,6 +1952,8 @@
 					}
 					break;
 				case 'wpfPriceRange':
+					var rate = $filter.data('rate');
+					urlParams = _thisObj.getConvertedPrices(urlParams, rate);
 					var minPrice = urlParams.min_price ? parseFloat(urlParams.min_price) : false,
 						maxPrice = urlParams.max_price ? parseFloat(urlParams.max_price) : false,
 						$options = $filter.find('li');
@@ -1962,8 +1964,11 @@
 						if(typeof range != 'undefined') {
 							range = range.split(',');
 							var minRange = range[0] == '' ? false : parseFloat(range[0]),
-								maxRange = range[1] == '' ? false : parseFloat(range[1]);
-							if(minPrice === minRange && maxPrice === maxRange ){
+								maxRange = range[1] == '' ? false : parseFloat(range[1]),
+								minPrices = [minPrice - 1, minPrice, minPrice + 1], // rounding error correction
+								maxPrices = [maxPrice - 1, maxPrice, maxPrice + 1]; // rounding error correction
+
+							if(minPrices.includes(minRange) && maxPrices.includes(maxRange)){
 								_this.find('input[type="checkbox"]').prop('checked', true);
 								return false;
 							}
@@ -2022,25 +2027,33 @@
 	});
 
 	WpfFrontendPage.prototype.getPriceFilterOptions = (function ($filter) {
-		var optionsArray = [],
+		var _thisObj = this.$obj,
+			optionsArray = [],
 			options = [],
 			minPrice = $filter.find('#wpfMinPrice').val(),
 			maxPrice = $filter.find('#wpfMaxPrice').val(),
 			tax = $filter.data('tax'),
-			str = minPrice + ',' + maxPrice;
+			rate = $filter.data('rate'),
+			str = '';
+
+		[minPrice, maxPrice, tax] = _thisObj.getConvertedPrices([minPrice, maxPrice, tax], rate);
+		str = minPrice + ',' + maxPrice;
 		options.push(str);
+
 		//options for frontend(change url)
 		var frontendOptions = [],
 			getParams = $filter.attr('data-get-attribute');
+		frontendOptions['rate'] = rate;
+
 		getParams = getParams.split(",");
 		for (var i = 0; i < getParams.length; i++) {
-			if(i === 0){
+			if (i === 0) {
 				frontendOptions[getParams[i]] = minPrice;
 			}
-			if(i === 1){
+			if (i === 1) {
 				frontendOptions[getParams[i]] = maxPrice;
 			}
-			if(i === 2 && tax!==''){
+			if (i === 2 && tax !== '') {
 				frontendOptions[getParams[i]] = tax;
 			}
 		}
@@ -2057,14 +2070,16 @@
 	});
 
 	WpfFrontendPage.prototype.getPriceRangeFilterOptions = (function ($filter) {
-		var optionsArray = [],
+		var _thisObj = this.$obj,
+			optionsArray = [],
 			options = [],
 			frontendOptions = [],
 			selectedOptions = {'is_one': true, 'list': []},
-			i = 0;
+			i = 0,
+			rate = $filter.data('rate');
 
-		if($filter.attr('data-display-type') === 'list'){
-			if($filter.find("input:checked").length){
+		if ($filter.attr('data-display-type') === 'list') {
+			if ($filter.find("input:checked").length) {
 				var li = $filter.find('input:checked').closest('li');
 				options[i] = li.attr('data-range');
 				selectedOptions['list'][i] = li.find('.wpfValue').html();
@@ -2082,21 +2097,32 @@
 		if (typeof options !== 'undefined' && options.length > 0) {
 			var getParams = $filter.attr('data-get-attribute'),
 				tax = $filter.data('tax');
+			frontendOptions['rate'] = rate;
 			getParams = getParams.split(",");
 			if (typeof options[0] !== 'undefined' && options[0].length > 0) {
 				var prices = options[0].split(',');
+				[prices[0], prices[1], tax] = _thisObj.getConvertedPrices([prices[0], prices[1], tax], rate);
 				frontendOptions[getParams[0]] = prices[0];
 				frontendOptions[getParams[1]] = prices[1];
-				if (typeof tax!== 'undefined') {
+				if (typeof tax !== 'undefined') {
 					frontendOptions[getParams[2]] = tax;
 				}
 			}
 		}
-		if(options.length == 0) {
+		if (options.length == 0) {
 			var defRange = $filter.attr('data-default');
-			if(typeof defRange != 'undefined' && defRange.length) {
+			if (typeof defRange != 'undefined' && defRange.length) {
 				options[i] = defRange;
 			}
+		}
+
+		if (typeof rate !== 'undefined') {
+			var minPrice = '',
+				maxPrice = '';
+			options = options.map(function (elem) {
+				[minPrice, maxPrice] = _thisObj.getConvertedPrices(elem.split(","), rate);
+				return minPrice + ',' + maxPrice;
+			});
 		}
 		optionsArray['backend'] = options;
 		optionsArray['frontend'] = frontendOptions;
@@ -2665,6 +2691,31 @@
             }
         }
         return obj;
+	};
+
+	WpfFrontendPage.prototype.getConvertedPrices = function (data, rate) {
+		if (typeof rate !== 'undefined' && rate !== 1 ) {
+			if (typeof data[0] !== 'undefined') {
+				data[0] = String(Math.round(data[0] / rate));
+				if (typeof data[1] !== 'undefined') {
+					data[1] = String(Math.round(data[1] / rate));
+				}
+				if (typeof data[2] !== 'undefined') {
+					data[2] = String(Math.round(data[2] / rate));
+				}
+			} else {
+				if (data.min_price) {
+					data.min_price = String(Math.round(data.min_price * rate));
+				}
+				if (data.max_price) {
+					data.max_price = String(Math.round(data.max_price * rate));
+				}
+				if (data.tax) {
+					data.tax = String(Math.round(data.tax * rate));
+				}
+			}
+		}
+		return data;
 	};
 
 	if (jQuery('.variations_form').length > 0 && typeof $(this).wc_variation_form == 'function') {

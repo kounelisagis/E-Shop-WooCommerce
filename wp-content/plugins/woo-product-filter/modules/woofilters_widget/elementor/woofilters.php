@@ -109,6 +109,9 @@ class Woofilters_ElementorWidgetWpf extends Widget_Base {
 	}
 	
 	protected function _register_controls() {
+		if (!is_admin()) {
+			return false;
+		}
 		list( $filtersOpts ) = $this->getFiltersSettings();
 		
 		$this->start_controls_section(
@@ -181,7 +184,6 @@ class Woofilters_ElementorWidgetWpf extends Widget_Base {
 	protected function _content_template() {}
 	
 	public function addWooFilterContentTabControls() {
-		
 		$this->start_controls_section(
 			'section_filters',
 			array(

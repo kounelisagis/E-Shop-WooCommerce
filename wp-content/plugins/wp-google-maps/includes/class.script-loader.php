@@ -723,6 +723,15 @@ class ScriptLoader
 					break;
 				
 			default:
+				/* Don't load in the post/page editor, for systems like Fusion/Avada */
+				if(is_admin()){
+					if(!empty($_GET['post']) && !empty($_GET['action'])){
+						if($_GET['action'] === 'edit'){
+							break;	
+						}
+					}
+				}
+
 				wp_enqueue_style('fontawesome', plugin_dir_url(__DIR__) . 'css/font-awesome.min.css');
 				break;
 		}

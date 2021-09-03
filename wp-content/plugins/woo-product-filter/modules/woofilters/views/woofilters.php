@@ -230,9 +230,7 @@ class WoofiltersViewWpf extends ViewWpf {
 					$html   = $this->generateFiltersHtml($settings, $viewId, false, false, array($catObj->taxonomy => $catObj->term_id));
 					break;
 				case 7: //vendor page
-					$vendor_shop = urldecode( get_query_var( 'vendor_shop' ) );
-					$vendor_id   = WCV_Vendors::get_vendor_id( $vendor_shop );
-					$html        = $this->generateFiltersHtml($settings, $viewId, false, false, array('vendors' => $vendor_id));
+					$html = $this->generateFiltersHtml( $settings, $viewId, false, false, array( 'vendors' => $this->getVendor() ) );
 					break;
 				case 10: //shortcode and admin preview
 				case 8: //product page
@@ -245,6 +243,18 @@ class WoofiltersViewWpf extends ViewWpf {
 		$this->assign('html', $html);
 
 		return parent::getContent('woofiltersHtml');
+	}
+
+	private function getVendor() {
+		if ( class_exists('WC_Vendors') ) {
+			$vendor_shop = urldecode( get_query_var( 'vendor_shop' ) );
+			return WCV_Vendors::get_vendor_id( $vendor_shop );
+		}
+
+		if ( is_plugin_active( 'dokan-lite/dokan.php' ) ) {
+			$custom_store_url = dokan_get_option( 'custom_store_url', 'dokan_general', 'store' );
+			return get_query_var( $custom_store_url );
+		}
 	}
 
 	/**
@@ -407,7 +417,11 @@ class WoofiltersViewWpf extends ViewWpf {
 
 		// determines if there are identical names of blocks that need to be added an index
 		$filterName = array();
+		$notResetProdCatId = false;
 		foreach ( $filtersOrder as $filter ) {
+			if ( !$notResetProdCatId && $this->getFilterSetting( $filter['settings'], 'f_set_page_category', false ) ) {
+				$notResetProdCatId = true;
+			}
 			$name = $filter['name'];
 			if ( '' !== $name ) {
 				if ( in_array( $name, $filterName ) ) {
@@ -468,9 +482,10 @@ class WoofiltersViewWpf extends ViewWpf {
 
 		$allProductsFiltering = $this->getFilterSetting($settings, 'all_products_filtering', false);
 
-		if ($allProductsFiltering) {
+		if ( $prodCatId && $allProductsFiltering && !$notResetProdCatId ) {
 			$prodCatId = false;
 		}
+
 		if ($prodCatId) {
 			$querySettings['product_category_id'] = $prodCatId;
 		}
@@ -834,6 +849,8 @@ class WoofiltersViewWpf extends ViewWpf {
 		$settings['minPrice'] = '0' === $prices->wpfMinPrice ? '0.01' : $prices->wpfMinPrice;
 		$settings['maxPrice'] = $prices->wpfMaxPrice;
 		$noActive = ReqWpf::getVar('min_price') && ReqWpf::getVar('max_price') ? '' : 'wpfNotActive';
+		$module   = FrameWpf::_()->getModule( 'woofilters' );
+		$rate     = $module->getCurrentRate();
 
 		$html =
 			'<div class="wpfFilterWrapper ' . $noActive . '"' .
@@ -844,6 +861,7 @@ class WoofiltersViewWpf extends ViewWpf {
 				' data-price-skin="default' .
 				'" data-minvalue="' . $prices->wpfMinPrice .
 				'" data-maxvalue="' . $prices->wpfMaxPrice .
+				'" data-rate="' . $rate .
 				( ( isset( $prices->tax ) ) ? '" data-tax="' . $prices->tax : '' ) .
 				'"' . $filter['blockAttributes'] .
 			'>' .
@@ -1014,6 +1032,9 @@ class WoofiltersViewWpf extends ViewWpf {
 		}
 		$noActive = ReqWpf::getVar('min_price') && ReqWpf::getVar('max_price') ? '' : 'wpfNotActive';
 
+		$module   = FrameWpf::_()->getModule( 'woofilters' );
+		$rate     = $module->getCurrentRate();
+
 		$html  =
 			'<div class="wpfFilterWrapper ' . $noActive . ( empty($defaultRange) ? '' : ' wpfPreselected' ) . '"' .
 
@@ -1024,6 +1045,7 @@ class WoofiltersViewWpf extends ViewWpf {
 				$defaultRange .
 			( ( isset( $prices->tax ) ) ? ' data-tax="' . $prices->tax . '"' : '' ) .
 				$filter['blockAttributes'] .
+			' data-rate="' . $rate . '"' .
 			'>';
 
 		$html .= $this->generateFilterHeaderHtml($filter, $filterSettings, $noActive);
@@ -2791,7 +2813,7 @@ class WoofiltersViewWpf extends ViewWpf {
 
 				$priceRange = ( 'i' === $wc_price[0] ? $underText . wc_price($wc_price[1] + 0.01) : ( 'i' === $wc_price[1] ? $overText . wc_price($wc_price[0] - 0.01) : wc_price($wc_price[0]) . ' - ' . wc_price($wc_price[1]) ) );
 				$dataRange  = ( 'i' === $range[0] ? '' : $module->getCurrencyPrice($range[0]) ) . ',' . ( 'i' === $range[1] ? '' : $module->getCurrencyPrice($range[1]) );
-				$selected   = ( $dataRange === $urlRange );
+				$selected = ( round( $range[0] ) . ',' . round( $range[1] ) === $urlRange );
 
 				if ($isList) {
 					$html   .= '<li data-range="' . $dataRange . '"><label>';
