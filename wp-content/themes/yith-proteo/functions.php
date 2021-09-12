@@ -1,4 +1,41 @@
 <?php
+
+/**
+ * @snippet       Swap Product with SKU @ WooCommerce Breadcrumb
+ * @how-to        Get CustomizeWoo.com FREE
+ * @author        Rodolfo Melogli
+ * @testedwith    WooCommerce 3.9
+ * @donate $9     https://businessbloomer.com/bloomer-armada/
+ */
+ 
+add_filter( 'woocommerce_get_breadcrumb', 'bbloomer_single_product_edit_prod_name_breadcrumbs', 9999, 2 );
+ 
+function bbloomer_single_product_edit_prod_name_breadcrumbs( $crumbs ) {
+    
+   if ( is_product() ) {
+	   // delete the last elements of an array of strings
+	   $index = count( $crumbs ) - 1;
+       $crumbs[$index] = "";
+   }
+   return $crumbs;
+}
+
+/**
+ * @snippet       Removes shipping method labels @ WooCommerce Cart / Checkout
+ * @how-to        Get CustomizeWoo.com FREE
+ * @author        Rodolfo Melogli
+ * @testedwith    WooCommerce 3.9
+ * @donate $9     https://businessbloomer.com/bloomer-armada/
+ */
+  
+add_filter( 'woocommerce_cart_shipping_method_full_label', 'bbloomer_remove_shipping_label', 9999, 2 );
+
+function bbloomer_remove_shipping_label( $label, $method ) {
+    $new_label = preg_replace( '/^.+:/', '', $label );
+    return $new_label;
+}
+
+
 /**
  * YITH-Proteo functions and definitions
  *

@@ -1,0 +1,10 @@
+2021-09-07T14:03:20+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function bbloomer_single_product_edit_prod_name_breadcrumbs(), 1 passed in C:\xampp\htdocs\eshop\wp-includes\class-wp-hook.php on line 305 and exactly 2 expected in C:\xampp\htdocs\eshop\wp-content\themes\yith-proteo\functions.php:13
+Stack trace:
+#0 C:\xampp\htdocs\eshop\wp-includes\class-wp-hook.php(305): bbloomer_single_product_edit_prod_name_breadcrumbs(Array)
+#1 C:\xampp\htdocs\eshop\wp-includes\plugin.php(189): WP_Hook->apply_filters(Array, Array)
+#2 C:\xampp\htdocs\eshop\wp-content\plugins\woocommerce\includes\class-wc-breadcrumb.php(49): apply_filters('woocommerce_get...', Array, Object(WC_Breadcrumb))
+#3 C:\xampp\htdocs\eshop\wp-content\plugins\woocommerce\includes\class-wc-breadcrumb.php(86): WC_Breadcrumb->get_breadcrumb()
+#4 C:\xampp\htdocs\eshop\wp-content\plugins\woocommerce\includes\wc-template-functions.php(2286): WC_Breadcrumb->generate()
+#5 C:\xampp\htdocs\eshop\wp-includes\class-wp-hook.php(303): woocommerce_breadcrumb(Array)
+#6 C:\xampp\htdo μέσα στο C:\xampp\htdocs\eshop\wp-content\themes\yith-proteo\functions.php στην γραμμή 13
+
