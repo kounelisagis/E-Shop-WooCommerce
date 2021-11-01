@@ -3,15 +3,15 @@
 	<img  src="https://user-images.githubusercontent.com/49285637/139727972-1ca43ac6-6d47-495d-8aa1-01d7118b3ae5.png" />
 </p>
 
-# Description
+## Description ⚡
 This is a project for the e-Business course, [CEID](https://www.ceid.upatras.gr/en) University of Patras.
 
 We created an e-shop for kids using WordPress, WooCommerce and various plug-ins.
 
-## Requirements
+### Requirements :wrench:
 XAMPP (http Apache, MySQL, PHP)
 
-## Plugins
+### Plugins :electric_plug:
 - Cookie Notice & Compliance for GDPR / CCPA
 - MetaSlider
 - Advanced AJAX Product Filters for WooCommerce
@@ -26,6 +26,6 @@ XAMPP (http Apache, MySQL, PHP)
 - WC Hide Shipping Methods
 
 
-# Team :
+## Team 👪
 - Ioannis Sina
 - Agisilaos Kounelis
