@@ -29,3 +29,31 @@ XAMPP (http Apache, MySQL, PHP)
 ## Team 👪
 - Ioannis Sina
 - Agisilaos Kounelis
+
+
+## Screenshots :camera_flash:
+
+<table>
+  <tr>
+    <td valign="top"><img src="https://user-images.githubusercontent.com/36283973/139730511-c45b1881-ae7e-4383-91a7-648a3db3ce69.png"></td>
+    <td valign="top"><img src="https://user-images.githubusercontent.com/36283973/139730515-2f29e261-8854-49ae-ad56-8be4e58a4c32.png"></td>
+    <td valign="top"><img src="https://user-images.githubusercontent.com/36283973/139730521-f979eebc-58ac-467c-8962-a677b417a473.png"></td>
+  </tr>
+  <tr>
+    <td valign="top"><img src="https://user-images.githubusercontent.com/36283973/139730523-e3ab7f0f-de17-4a78-99c4-44dc661bc6d9.png"></td>
+    <td valign="top"><img src="https://user-images.githubusercontent.com/36283973/139730526-44dda3fa-02d5-4f72-aefa-d2ea666f8b57.png"></td>
+    <td valign="top"><img src="https://user-images.githubusercontent.com/36283973/139730529-6ee59a40-4049-4007-bf60-1dfc96c5e7ce.png"></td>
+  </tr>
+  <tr>
+    <td valign="top"><img src="https://user-images.githubusercontent.com/36283973/139730535-63e28f40-2225-4eaf-b0da-a8e8554ab8cd.png"></td>
+    <td valign="top"><img src="https://user-images.githubusercontent.com/36283973/139730537-68d93486-0037-4ab1-92c6-7ee694f866b2.png"></td>
+    <td valign="top"><img src="https://user-images.githubusercontent.com/36283973/139730538-8b355ac1-7b7b-42b9-917f-fc1ae01f459e.png"></td>
+  </tr>
+  <tr>
+    <td valign="top"><img src="https://user-images.githubusercontent.com/36283973/139730542-69dda77d-3b88-45e9-a164-cf2e70189419.png"></td>
+    <td valign="top"><img src="https://user-images.githubusercontent.com/36283973/139730545-d585a830-191f-441b-ba0c-c87cad39f721.png"></td>
+    <td valign="top"><img src="https://user-images.githubusercontent.com/36283973/139730547-80ac07da-283d-4fc6-83e6-4b57c3f6d73c.png"></td>
+  </tr>
+</table>
+	 
+
