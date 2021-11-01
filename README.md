@@ -27,8 +27,8 @@ XAMPP (http Apache, MySQL, PHP)
 
 
 ## Team 👪
-- Ioannis Sina
-- Agisilaos Kounelis
+- [Ioannis Sina](https://github.com/IoannisSina)
+- [Agisilaos Kounelis](https://github.com/kounelisagis)
 
 
 ## Screenshots :camera_flash:
